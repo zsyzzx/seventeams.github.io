@@ -298,6 +298,217 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/01/Linux下部署开源论坛Nodebb/" itemprop="url">
+                  Linux下部署开源论坛Nodebb
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T21:57:13+08:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/01/Linux下部署开源论坛Nodebb/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/01/Linux下部署开源论坛Nodebb/" class="leancloud_visitors" data-flag-title="Linux下部署开源论坛Nodebb">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="为什么使用nodebb"><a href="#为什么使用nodebb" class="headerlink" title="为什么使用nodebb"></a>为什么使用nodebb</h1><ol>
+<li>工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。</li>
+<li>之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败</li>
+<li>暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。</li>
+<li>nodebb好看以及响应式设计，移动友好性等</li>
+</ol>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
+<li><h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><p>参照肖神的安装方法，使用包管理器安装：<a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="external">Nodejs官方包管理器安装方法</a></p>
+<blockquote>
+<p>少了很多配置，能否安装成功全看网速了（学校的校内网对国外的网速限制特别厉害）<br>附上<a href="http://blog.xgy666.cn/" target="_blank" rel="external">肖神博客</a></p>
+</blockquote>
+</li>
+<li><h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>为了使用最新版的Nginx，参照[]官方的下载安装教程] (<a href="http://nginx.org/en/linux_packages.html#stable" target="_blank" rel="external">http://nginx.org/en/linux_packages.html#stable</a>) 找到相应的系统版本下载就行</p>
+</li>
+<li><h3 id="安装Git-root下yum安装"><a href="#安装Git-root下yum安装" class="headerlink" title="安装Git root下yum安装"></a>安装Git <em>root下yum安装</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="安装redis3-2-6"><a href="#安装redis3-2-6" class="headerlink" title="安装redis3.2.6"></a>安装redis3.2.6</h3><blockquote>
+<p>原本考虑使用mongodb的，但下载速度太慢、也比较大200+M及莫名失败，所以选择了redis，<br>附上<a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">mongodb”centos”官方安装教程</a></p>
+</blockquote>
+<ol>
+<li><p>下载Redis参考<a href="https://redis.io/download" target="_blank" rel="external">官方下载教程</a></p>
+<blockquote>
+<p>我实在受不了学校的下载速度，所以是先下载到本地，然后通过‘FileZilla’上传到服务器<strong>源代码只有不到2MB！</strong></p>
+</blockquote>
+</li>
+<li><p>设置redis</p>
+<blockquote>
+<ul>
+<li><a href="https://linux.cn/article-6719-1.html" target="_blank" rel="external">CentOS 7 上安装 Redis 服务器</a>  </li>
+<li><a href="https://segmentfault.com/a/1190000002685224" target="_blank" rel="external">centos6安装redis</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<p>预想到学校的网速问题，在使用这个方法之前，尝试过使用<a href="http://mirrors.ustc.edu.cn/" target="_blank" rel="external">中科大镜像</a>的<a href="http://blog.chinaunix.net/uid-2469966-id-3916408.html" target="_blank" rel="external">EPEL</a>。使用<code>yum install redis</code>来安装redis，这样安装真的少了很多手动配置，方便很多。<br>但是中科大centos6的EPEL很久没更新了（最近更新在2010年左右）,导致Redis版本太低，nodebb启动失败，最后采用了上述手动安装的方法</p>
+<hr>
+<h1 id="开始安装Nodebb"><a href="#开始安装Nodebb" class="headerlink" title="开始安装Nodebb"></a>开始安装Nodebb</h1><h3 id="1-下载Nodebb到相应的目录"><a href="#1-下载Nodebb到相应的目录" class="headerlink" title="1.  下载Nodebb到相应的目录"></a>1.  下载Nodebb到相应的目录</h3><p><code>git clone https://github.com/NodeBB/NodeBB.git</code></p>
+<h3 id="2-参照官方教程安装NodeBB"><a href="#2-参照官方教程安装NodeBB" class="headerlink" title="2. 参照官方教程安装NodeBB"></a>2. 参照<a href="https://docs.nodebb.org/en/latest/installing/os/centos.html" target="_blank" rel="external">官方教程</a>安装NodeBB</h3><blockquote>
+<p>如果<code>npm install</code> 速度比较慢的话，可以使用淘宝的国内镜像<br><code>npm install --registry=https://registry.npm.taobao.org</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//安装依赖包</div><div class="line">npm install</div><div class="line">//配置nodebb 管理员，数据库等</div><div class="line">./nodebb setup</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="3-安装完成后，启动NodeBB"><a href="#3-安装完成后，启动NodeBB" class="headerlink" title="3. 安装完成后，启动NodeBB"></a>3. 安装完成后，启动NodeBB</h3><p>在nodebb的根目录下<br>终端执行 <code>./nodebb start</code>或者<code>node app</code></p>
+<blockquote>
+<ul>
+<li>前者是只要服务器不关机就可以一直后台运行</li>
+<li>后者必须保持终端打开状态，终端一断开或者一按‘CTRL+C’,nodebb就会停止，而且后者会显示启动状态及启动失败问题</li>
+</ul>
+</blockquote>
+<p>运行成功后，可以通过你设置的端口号来访问了，在nodebb根目录‘config.js’文件修改</p>
+<blockquote>
+<ul>
+<li>本地  <a href="http://localhost:你的端口号（默认4567）" target="_blank" rel="external">http://localhost:你的端口号（默认4567）</a> 如果是服务器没有图形界面可以使用  <code>curl i localhost:4567</code> 来检验nodebb是否启动成功</li>
+<li>外网访问 <a href="http://你的Ip地址:端口（默认4567）这个前提是：你要开放相应的端口" target="_blank" rel="external">http://你的Ip地址:端口（默认4567）这个前提是：你要开放相应的端口</a></li>
+</ul>
+</blockquote>
+<h3 id="4-设置nginx"><a href="#4-设置nginx" class="headerlink" title="4. 设置nginx"></a>4. 设置nginx</h3><p>参照<a href="https://docs.nodebb.org/en/latest/configuring/proxies/nginx.html" target="_blank" rel="external">Nodebb官方Nginx配置</a></p>
+<blockquote>
+<p><strong>设置nginx的目的是只开放80端口，不用开放所有端口，就可以访问一个服务器里的多个网站，更方便和更安全</strong><br>更多资料,Nginx相关。请百度“Nginx” 或者看<a href="http://wiki.flyingstudio.online/" target="_blank" rel="external">工作室wiki</a></p>
+</blockquote>
+<hr>
+<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>做完上述工作后，根据我在自己的腾讯云服务器配置nodebb的经验，是可以通过域名访问的 <a href="http://forum.flyingstudio.online/" target="_blank" rel="external">http://forum.flyingstudio.online/</a> ，但这次出现了“502”错误。</p>
+<p>刚开始还以为Nginx配置错误，又重复弄了几次：配置文件名字 *.conf，默认配置文件中是否 include 了配置文件夹，配置文件的内容等</p>
+<p>最后只好百度关键词“502” “nodebb 启动” “nodebb 502”等。，找到了读取nginx日志的命令：<br><code>sudo tail /var/log/nginx/error.log</code></p>
+<p>在日志中发现了原因：这是部分关键字“failed (13: Permission denied)”  百度了之后发现是：SeLinux设置问题。<a href="http://www.hpboys.com/827.html" target="_blank" rel="external">搜到的结果</a></p>
+<p>然后我尝试了 <code>setenforce 0</code> 临时设置Selinux为Permissive,域名访问nodebb后，发现没有出现，所以问题解决成功</p>
+<p>为了安全考虑，我又把selinux设置为“Enforcing”，想着能不能只开放一个端口即nodebb使用的端口（默认4567），想起<a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">安装mongodb</a>曾经提到过selinux<br>在里面找到:</p>
+<blockquote>
+<p>If SELinux is in enforcing mode, enable access to the relevant ports that the MongoDB deployment will use (e.g. 27017). See Default MongoDB Port for more information on MongoDB’s default ports. For default settings, this can be accomplished by running<br><code>semanage port -a -t mongod_port_t -p tcp 27017</code></p>
+</blockquote>
+<p>仿照搜到的教程<a href="http://os.51cto.com/art/201105/265956.htm" target="_blank" rel="external">selinux教程</a>里Apache的解决方法</p>
+<blockquote>
+<p>可以看出 SELinux 根据三种不同情况分别给出了对应的解决方法。在这里，第一种情况是我们想要的，于是按照其建议输入：<br><code>semanage port -a -t http_port_t -p tcp 888</code><br>之后再次启动 Apache 服务就不会有问题了。<br>这里又可以见到 semanage 这个 SELinux 管理配置工具。它第一个选项代表要更改的类型，然后紧跟所要进行操作。</p>
+</blockquote>
+<p>最后写了这个命令:<code>semanage port -a -t http_port_t -p tcp 4567</code>，nodebb能通过域名访问了</p>
+<blockquote>
+<p>期间出现了没有找到”semanage”问题，找到的解决方案有：</p>
+<ul>
+<li><a href="https://www.cyberciti.biz/faq/redhat-install-semanage-selinux-command-rpm/" target="_blank" rel="external">https://www.cyberciti.biz/faq/redhat-install-semanage-selinux-command-rpm/</a></li>
+<li><a href="http://sharadchhetri.com/2014/10/07/semanage-command-found-centos-7-rhel-7/" target="_blank" rel="external">http://sharadchhetri.com/2014/10/07/semanage-command-found-centos-7-rhel-7/</a></li>
+</ul>
+</blockquote>
+<p>百度到的相关Selinux资料：</p>
+<blockquote>
+<p><a href="http://os.51cto.com/art/201105/265956.htm" target="_blank" rel="external">selinux入门</a><br><a href="http://www.hpboys.com/824.html" target="_blank" rel="external">Centos看Selinux</a></p>
+</blockquote>
+<h1 id="nodebb插件安装"><a href="#nodebb插件安装" class="headerlink" title="nodebb插件安装"></a>nodebb插件安装</h1><p>因为方便用户登录，使用了第三方登录插件和安全插件(防垃圾帖子和机器注册)</p>
+<ol>
+<li>直接在后台按照</li>
+<li>在nodebb根目录下 npm install &lt;你需要的插件&gt;<blockquote>
+<p>相关插件可以在npm，GitHub上寻找，也可以在nodebb插件市场上找</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="将来可能出现的问题"><a href="#将来可能出现的问题" class="headerlink" title="将来可能出现的问题"></a>将来可能出现的问题</h1><blockquote>
+<p>这次是这几年来，工作室第一次使用Linux服务器，从技术上，人员上是个挑战。</p>
+</blockquote>
+<ol>
+<li>安全问题<br>工作室防服务器是学校的虚拟机，是对外，为用户服务的,Linux服务器如何管理，如何保证安全是一个问题。现在<strong>https</strong>越来越普遍，工作室也应该尽快进入https阶段了</li>
+<li>性能问题<br>这个服务器配置不太好，将来很有可能出现性能瓶颈，如何和网络中心协商升级服务器</li>
+<li>后期维护问题<br>这个nodebb采用的nodeJS+redis技术，后面的人才培养，进行二次开发，也是个挑战</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/20/点石成金读书笔记/" itemprop="url">
                   点石成金读书笔记
                 </a>
@@ -1264,7 +1475,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1281,7 +1492,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1317,8 +1528,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

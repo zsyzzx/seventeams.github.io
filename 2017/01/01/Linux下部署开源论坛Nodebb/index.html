@@ -1,0 +1,923 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="学习,Linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="为什么使用nodebb
+工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。
+之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败
+暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。
+nodebb好看以及响应式设计，移动友好性等
+
+准备
+安装Node参照肖神的安装方法，使用包管理器安装：Nodejs官方包管理器安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下部署开源论坛Nodebb">
+<meta property="og:url" content="http://blog.seventeams.CN/2017/01/01/Linux下部署开源论坛Nodebb/index.html">
+<meta property="og:site_name" content="seventeams">
+<meta property="og:description" content="为什么使用nodebb
+工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。
+之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败
+暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。
+nodebb好看以及响应式设计，移动友好性等
+
+准备
+安装Node参照肖神的安装方法，使用包管理器安装：Nodejs官方包管理器安装">
+<meta property="og:updated_time" content="2017-01-03T08:10:27.826Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux下部署开源论坛Nodebb">
+<meta name="twitter:description" content="为什么使用nodebb
+工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。
+之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败
+暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。
+nodebb好看以及响应式设计，移动友好性等
+
+准备
+安装Node参照肖神的安装方法，使用包管理器安装：Nodejs官方包管理器安装">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.seventeams.CN/2017/01/01/Linux下部署开源论坛Nodebb/"/>
+
+
+  <title> Linux下部署开源论坛Nodebb | seventeams </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86831189-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">seventeams</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">seven，seventeen，seventeam</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '9xjMdzz4t6sDE4N69CaJ','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux下部署开源论坛Nodebb
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T21:57:13+08:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/01/Linux下部署开源论坛Nodebb/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/01/Linux下部署开源论坛Nodebb/" class="leancloud_visitors" data-flag-title="Linux下部署开源论坛Nodebb">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="为什么使用nodebb"><a href="#为什么使用nodebb" class="headerlink" title="为什么使用nodebb"></a>为什么使用nodebb</h1><ol>
+<li>工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。</li>
+<li>之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败</li>
+<li>暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。</li>
+<li>nodebb好看以及响应式设计，移动友好性等</li>
+</ol>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
+<li><h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><p>参照肖神的安装方法，使用包管理器安装：<a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="external">Nodejs官方包管理器安装方法</a></p>
+<blockquote>
+<p>少了很多配置，能否安装成功全看网速了（学校的校内网对国外的网速限制特别厉害）<br>附上<a href="http://blog.xgy666.cn/" target="_blank" rel="external">肖神博客</a></p>
+</blockquote>
+</li>
+<li><h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>为了使用最新版的Nginx，参照[]官方的下载安装教程] (<a href="http://nginx.org/en/linux_packages.html#stable" target="_blank" rel="external">http://nginx.org/en/linux_packages.html#stable</a>) 找到相应的系统版本下载就行</p>
+</li>
+<li><h3 id="安装Git-root下yum安装"><a href="#安装Git-root下yum安装" class="headerlink" title="安装Git root下yum安装"></a>安装Git <em>root下yum安装</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="安装redis3-2-6"><a href="#安装redis3-2-6" class="headerlink" title="安装redis3.2.6"></a>安装redis3.2.6</h3><blockquote>
+<p>原本考虑使用mongodb的，但下载速度太慢、也比较大200+M及莫名失败，所以选择了redis，<br>附上<a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">mongodb”centos”官方安装教程</a></p>
+</blockquote>
+<ol>
+<li><p>下载Redis参考<a href="https://redis.io/download" target="_blank" rel="external">官方下载教程</a></p>
+<blockquote>
+<p>我实在受不了学校的下载速度，所以是先下载到本地，然后通过‘FileZilla’上传到服务器<strong>源代码只有不到2MB！</strong></p>
+</blockquote>
+</li>
+<li><p>设置redis</p>
+<blockquote>
+<ul>
+<li><a href="https://linux.cn/article-6719-1.html" target="_blank" rel="external">CentOS 7 上安装 Redis 服务器</a>  </li>
+<li><a href="https://segmentfault.com/a/1190000002685224" target="_blank" rel="external">centos6安装redis</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<p>预想到学校的网速问题，在使用这个方法之前，尝试过使用<a href="http://mirrors.ustc.edu.cn/" target="_blank" rel="external">中科大镜像</a>的<a href="http://blog.chinaunix.net/uid-2469966-id-3916408.html" target="_blank" rel="external">EPEL</a>。使用<code>yum install redis</code>来安装redis，这样安装真的少了很多手动配置，方便很多。<br>但是中科大centos6的EPEL很久没更新了（最近更新在2010年左右）,导致Redis版本太低，nodebb启动失败，最后采用了上述手动安装的方法</p>
+<hr>
+<h1 id="开始安装Nodebb"><a href="#开始安装Nodebb" class="headerlink" title="开始安装Nodebb"></a>开始安装Nodebb</h1><h3 id="1-下载Nodebb到相应的目录"><a href="#1-下载Nodebb到相应的目录" class="headerlink" title="1.  下载Nodebb到相应的目录"></a>1.  下载Nodebb到相应的目录</h3><p><code>git clone https://github.com/NodeBB/NodeBB.git</code></p>
+<h3 id="2-参照官方教程安装NodeBB"><a href="#2-参照官方教程安装NodeBB" class="headerlink" title="2. 参照官方教程安装NodeBB"></a>2. 参照<a href="https://docs.nodebb.org/en/latest/installing/os/centos.html" target="_blank" rel="external">官方教程</a>安装NodeBB</h3><blockquote>
+<p>如果<code>npm install</code> 速度比较慢的话，可以使用淘宝的国内镜像<br><code>npm install --registry=https://registry.npm.taobao.org</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//安装依赖包</div><div class="line">npm install</div><div class="line">//配置nodebb 管理员，数据库等</div><div class="line">./nodebb setup</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="3-安装完成后，启动NodeBB"><a href="#3-安装完成后，启动NodeBB" class="headerlink" title="3. 安装完成后，启动NodeBB"></a>3. 安装完成后，启动NodeBB</h3><p>在nodebb的根目录下<br>终端执行 <code>./nodebb start</code>或者<code>node app</code></p>
+<blockquote>
+<ul>
+<li>前者是只要服务器不关机就可以一直后台运行</li>
+<li>后者必须保持终端打开状态，终端一断开或者一按‘CTRL+C’,nodebb就会停止，而且后者会显示启动状态及启动失败问题</li>
+</ul>
+</blockquote>
+<p>运行成功后，可以通过你设置的端口号来访问了，在nodebb根目录‘config.js’文件修改</p>
+<blockquote>
+<ul>
+<li>本地  <a href="http://localhost:你的端口号（默认4567）" target="_blank" rel="external">http://localhost:你的端口号（默认4567）</a> 如果是服务器没有图形界面可以使用  <code>curl i localhost:4567</code> 来检验nodebb是否启动成功</li>
+<li>外网访问 <a href="http://你的Ip地址:端口（默认4567）这个前提是：你要开放相应的端口" target="_blank" rel="external">http://你的Ip地址:端口（默认4567）这个前提是：你要开放相应的端口</a></li>
+</ul>
+</blockquote>
+<h3 id="4-设置nginx"><a href="#4-设置nginx" class="headerlink" title="4. 设置nginx"></a>4. 设置nginx</h3><p>参照<a href="https://docs.nodebb.org/en/latest/configuring/proxies/nginx.html" target="_blank" rel="external">Nodebb官方Nginx配置</a></p>
+<blockquote>
+<p><strong>设置nginx的目的是只开放80端口，不用开放所有端口，就可以访问一个服务器里的多个网站，更方便和更安全</strong><br>更多资料,Nginx相关。请百度“Nginx” 或者看<a href="http://wiki.flyingstudio.online/" target="_blank" rel="external">工作室wiki</a></p>
+</blockquote>
+<hr>
+<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>做完上述工作后，根据我在自己的腾讯云服务器配置nodebb的经验，是可以通过域名访问的 <a href="http://forum.flyingstudio.online/" target="_blank" rel="external">http://forum.flyingstudio.online/</a> ，但这次出现了“502”错误。</p>
+<p>刚开始还以为Nginx配置错误，又重复弄了几次：配置文件名字 *.conf，默认配置文件中是否 include 了配置文件夹，配置文件的内容等</p>
+<p>最后只好百度关键词“502” “nodebb 启动” “nodebb 502”等。，找到了读取nginx日志的命令：<br><code>sudo tail /var/log/nginx/error.log</code></p>
+<p>在日志中发现了原因：这是部分关键字“failed (13: Permission denied)”  百度了之后发现是：SeLinux设置问题。<a href="http://www.hpboys.com/827.html" target="_blank" rel="external">搜到的结果</a></p>
+<p>然后我尝试了 <code>setenforce 0</code> 临时设置Selinux为Permissive,域名访问nodebb后，发现没有出现，所以问题解决成功</p>
+<p>为了安全考虑，我又把selinux设置为“Enforcing”，想着能不能只开放一个端口即nodebb使用的端口（默认4567），想起<a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">安装mongodb</a>曾经提到过selinux<br>在里面找到:</p>
+<blockquote>
+<p>If SELinux is in enforcing mode, enable access to the relevant ports that the MongoDB deployment will use (e.g. 27017). See Default MongoDB Port for more information on MongoDB’s default ports. For default settings, this can be accomplished by running<br><code>semanage port -a -t mongod_port_t -p tcp 27017</code></p>
+</blockquote>
+<p>仿照搜到的教程<a href="http://os.51cto.com/art/201105/265956.htm" target="_blank" rel="external">selinux教程</a>里Apache的解决方法</p>
+<blockquote>
+<p>可以看出 SELinux 根据三种不同情况分别给出了对应的解决方法。在这里，第一种情况是我们想要的，于是按照其建议输入：<br><code>semanage port -a -t http_port_t -p tcp 888</code><br>之后再次启动 Apache 服务就不会有问题了。<br>这里又可以见到 semanage 这个 SELinux 管理配置工具。它第一个选项代表要更改的类型，然后紧跟所要进行操作。</p>
+</blockquote>
+<p>最后写了这个命令:<code>semanage port -a -t http_port_t -p tcp 4567</code>，nodebb能通过域名访问了</p>
+<blockquote>
+<p>期间出现了没有找到”semanage”问题，找到的解决方案有：</p>
+<ul>
+<li><a href="https://www.cyberciti.biz/faq/redhat-install-semanage-selinux-command-rpm/" target="_blank" rel="external">https://www.cyberciti.biz/faq/redhat-install-semanage-selinux-command-rpm/</a></li>
+<li><a href="http://sharadchhetri.com/2014/10/07/semanage-command-found-centos-7-rhel-7/" target="_blank" rel="external">http://sharadchhetri.com/2014/10/07/semanage-command-found-centos-7-rhel-7/</a></li>
+</ul>
+</blockquote>
+<p>百度到的相关Selinux资料：</p>
+<blockquote>
+<p><a href="http://os.51cto.com/art/201105/265956.htm" target="_blank" rel="external">selinux入门</a><br><a href="http://www.hpboys.com/824.html" target="_blank" rel="external">Centos看Selinux</a></p>
+</blockquote>
+<h1 id="nodebb插件安装"><a href="#nodebb插件安装" class="headerlink" title="nodebb插件安装"></a>nodebb插件安装</h1><p>因为方便用户登录，使用了第三方登录插件和安全插件(防垃圾帖子和机器注册)</p>
+<ol>
+<li>直接在后台按照</li>
+<li>在nodebb根目录下 npm install &lt;你需要的插件&gt;<blockquote>
+<p>相关插件可以在npm，GitHub上寻找，也可以在nodebb插件市场上找</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="将来可能出现的问题"><a href="#将来可能出现的问题" class="headerlink" title="将来可能出现的问题"></a>将来可能出现的问题</h1><blockquote>
+<p>这次是这几年来，工作室第一次使用Linux服务器，从技术上，人员上是个挑战。</p>
+</blockquote>
+<ol>
+<li>安全问题<br>工作室防服务器是学校的虚拟机，是对外，为用户服务的,Linux服务器如何管理，如何保证安全是一个问题。现在<strong>https</strong>越来越普遍，工作室也应该尽快进入https阶段了</li>
+<li>性能问题<br>这个服务器配置不太好，将来很有可能出现性能瓶颈，如何和网络中心协商升级服务器</li>
+<li>后期维护问题<br>这个nodebb采用的nodeJS+redis技术，后面的人才培养，进行二次开发，也是个挑战</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习/" rel="tag">#学习</a>
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/20/点石成金读书笔记/" rel="next" title="点石成金读书笔记">
+                <i class="fa fa-chevron-left"></i> 点石成金读书笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/"
+     data-title="Linux下部署开源论坛Nodebb"
+     data-content=""
+     data-url="http://blog.seventeams.CN/2017/01/01/Linux下部署开源论坛Nodebb/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/"
+           data-title="Linux下部署开源论坛Nodebb" data-url="http://blog.seventeams.CN/2017/01/01/Linux下部署开源论坛Nodebb/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="seven-zsyzzx" />
+          <p class="site-author-name" itemprop="name">seven-zsyzzx</p>
+          <p class="site-description motion-element" itemprop="description">个人博客,记录自己</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么使用nodebb"><span class="nav-number">1.</span> <span class="nav-text">为什么使用nodebb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node"><span class="nav-number">2.0.1.</span> <span class="nav-text">安装Node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Nginx"><span class="nav-number">2.0.2.</span> <span class="nav-text">安装Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git-root下yum安装"><span class="nav-number">2.0.3.</span> <span class="nav-text">安装Git root下yum安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装redis3-2-6"><span class="nav-number">2.0.4.</span> <span class="nav-text">安装redis3.2.6</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始安装Nodebb"><span class="nav-number">3.</span> <span class="nav-text">开始安装Nodebb</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载Nodebb到相应的目录"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.  下载Nodebb到相应的目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-参照官方教程安装NodeBB"><span class="nav-number">3.0.2.</span> <span class="nav-text">2. 参照官方教程安装NodeBB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装完成后，启动NodeBB"><span class="nav-number">3.0.3.</span> <span class="nav-text">3. 安装完成后，启动NodeBB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-设置nginx"><span class="nav-number">3.0.4.</span> <span class="nav-text">4. 设置nginx</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题解决"><span class="nav-number">4.</span> <span class="nav-text">问题解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nodebb插件安装"><span class="nav-number">5.</span> <span class="nav-text">nodebb插件安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将来可能出现的问题"><span class="nav-number">6.</span> <span class="nav-text">将来可能出现的问题</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">seven-zsyzzx</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"seventeams"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XSuHXMUAW7oym6yPOYfHuMtD-gzGzoHsz", "nfGfdjsnnKMAjF6ub666NVDA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
