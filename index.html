@@ -668,7 +668,8 @@
       
         
           
-            <h1 id="为什么使用nodebb"><a href="#为什么使用nodebb" class="headerlink" title="为什么使用nodebb"></a>为什么使用nodebb</h1><ol>
+            <h1 id="工作室内部论坛FlyingForum"><a href="#工作室内部论坛FlyingForum" class="headerlink" title="工作室内部论坛FlyingForum"></a><a href="http://forum.flyingstudio.online/" target="_blank" rel="external">工作室内部论坛FlyingForum</a></h1><hr>
+<h1 id="为什么使用nodebb"><a href="#为什么使用nodebb" class="headerlink" title="为什么使用nodebb"></a>为什么使用nodebb</h1><ol>
 <li>工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。</li>
 <li>之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败</li>
 <li>暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。</li>
@@ -680,7 +681,7 @@
 <p>少了很多配置，能否安装成功全看网速了（学校的校内网对国外的网速限制特别厉害）<br>附上<a href="http://blog.xgy666.cn/" target="_blank" rel="external">肖神博客</a></p>
 </blockquote>
 </li>
-<li><h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>为了使用最新版的Nginx，参照[]官方的下载安装教程] (<a href="http://nginx.org/en/linux_packages.html#stable" target="_blank" rel="external">http://nginx.org/en/linux_packages.html#stable</a>) 找到相应的系统版本下载就行</p>
+<li><h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>为了使用最新版的Nginx，参照[官方的下载安装教程] (<a href="http://nginx.org/en/linux_packages.html#stable" target="_blank" rel="external">http://nginx.org/en/linux_packages.html#stable</a>) 找到相应的系统版本下载就行</p>
 </li>
 <li><h3 id="安装Git-root下yum安装"><a href="#安装Git-root下yum安装" class="headerlink" title="安装Git root下yum安装"></a>安装Git <em>root下yum安装</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git</div></pre></td></tr></table></figure>
 </li>
@@ -729,7 +730,7 @@
 <p><strong>设置nginx的目的是只开放80端口，不用开放所有端口，就可以访问一个服务器里的多个网站，更方便和更安全</strong><br>更多资料,Nginx相关。请百度“Nginx” 或者看<a href="http://wiki.flyingstudio.online/" target="_blank" rel="external">工作室wiki</a></p>
 </blockquote>
 <hr>
-<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>做完上述工作后，根据我在自己的腾讯云服务器配置nodebb的经验，是可以通过域名访问的 <a href="http://forum.flyingstudio.online/" target="_blank" rel="external">http://forum.flyingstudio.online/</a> ，但这次出现了“502”错误。</p>
+<h1 id="问题解决-SElinux导致Nginx转发失败"><a href="#问题解决-SElinux导致Nginx转发失败" class="headerlink" title="问题解决  SElinux导致Nginx转发失败"></a>问题解决  SElinux导致Nginx转发失败</h1><p>做完上述工作后，根据我在自己的腾讯云服务器配置nodebb的经验，是可以通过域名访问的 <a href="http://forum.flyingstudio.online/" target="_blank" rel="external">http://forum.flyingstudio.online/</a> ，但这次出现了“502”错误。</p>
 <p>刚开始还以为Nginx配置错误，又重复弄了几次：配置文件名字 *.conf，默认配置文件中是否 include 了配置文件夹，配置文件的内容等</p>
 <p>最后只好百度关键词“502” “nodebb 启动” “nodebb 502”等。，找到了读取nginx日志的命令：<br><code>sudo tail /var/log/nginx/error.log</code></p>
 <p>在日志中发现了原因：这是部分关键字“failed (13: Permission denied)”  百度了之后发现是：SeLinux设置问题。<a href="http://www.hpboys.com/827.html" target="_blank" rel="external">搜到的结果</a></p>
@@ -752,7 +753,7 @@
 </blockquote>
 <p>百度到的相关Selinux资料：</p>
 <blockquote>
-<p><a href="http://os.51cto.com/art/201105/265956.htm" target="_blank" rel="external">selinux入门</a><br><a href="http://www.hpboys.com/824.html" target="_blank" rel="external">Centos看Selinux</a></p>
+<p><a href="http://os.51cto.com/art/201105/265956.htm" target="_blank" rel="external">selinux入门</a><br><a href="http://www.hpboys.com/824.html" target="_blank" rel="external">Centos看Selinux状态</a></p>
 </blockquote>
 <h1 id="nodebb插件安装"><a href="#nodebb插件安装" class="headerlink" title="nodebb插件安装"></a>nodebb插件安装</h1><p>因为方便用户登录，使用了第三方登录插件和安全插件(防垃圾帖子和机器注册)</p>
 <ol>
@@ -770,6 +771,7 @@
 <li>性能问题<br>这个服务器配置不太好，将来很有可能出现性能瓶颈，如何和网络中心协商升级服务器</li>
 <li>后期维护问题<br>这个nodebb采用的nodeJS+redis技术，后面的人才培养，进行二次开发，也是个挑战</li>
 </ol>
+<h1 id="链接收集："><a href="#链接收集：" class="headerlink" title="链接收集："></a>链接收集：</h1><p>工作室：<br><a href="http://forum.flyingstudio.online/" target="_blank" rel="external">工作室内部论坛FlyingForum</a><br><a href="http://wiki.flyingstudio.online/" target="_blank" rel="external">工作室wiki</a><br>Node相关：<br><a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="external">Nodejs官方包管理器安装方法</a><br>Nginx相关：<br>[Nginx下载安装教程] (<a href="http://nginx.org/en/linux_packages.html#stable" target="_blank" rel="external">http://nginx.org/en/linux_packages.html#stable</a>)<br>MongoDB：<br><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">mongodb”centos”官方安装教程</a><br>Redis相关：<br><a href="https://redis.io/download" target="_blank" rel="external">Redis官方下载</a><br><a href="https://linux.cn/article-6719-1.html" target="_blank" rel="external">CentOS 7 上安装 Redis 服务器</a><br><a href="https://segmentfault.com/a/1190000002685224" target="_blank" rel="external">centos6安装redis</a><br>NodeBB相关：<br><a href="https://docs.nodebb.org/en/latest/installing/os/centos.html" target="_blank" rel="external">官方安装教程</a><br><a href="https://docs.nodebb.org/en/latest/configuring/proxies/nginx.html" target="_blank" rel="external">Nodebb官方Nginx配置</a><br>SELinux相关：<br><a href="http://os.51cto.com/art/201105/265956.htm" target="_blank" rel="external">selinux入门</a><br><a href="http://www.hpboys.com/824.html" target="_blank" rel="external">Centos看Selinux状态</a></p>
 
           
         
