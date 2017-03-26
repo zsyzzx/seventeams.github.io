@@ -89,24 +89,18 @@
 工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。
 之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败
 暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。
-nodebb好看以及响应式设计，移动友好性等
-
-准备
-安装Node参照肖神的安装方法，使用包管">
+nodebb好看以及响应式设计，移动友好性等">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下部署开源论坛Nodebb">
-<meta property="og:url" content="http://blog.seventeams.CN/2017/01/01/Linux下部署开源论坛Nodebb/index.html">
+<meta property="og:url" content="http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/index.html">
 <meta property="og:site_name" content="seventeams">
 <meta property="og:description" content="工作室内部论坛FlyingForum
 为什么使用nodebb
 工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。
 之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败
 暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。
-nodebb好看以及响应式设计，移动友好性等
-
-准备
-安装Node参照肖神的安装方法，使用包管">
-<meta property="og:updated_time" content="2017-01-03T08:46:43.558Z">
+nodebb好看以及响应式设计，移动友好性等">
+<meta property="og:updated_time" content="2017-03-26T03:11:51.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下部署开源论坛Nodebb">
 <meta name="twitter:description" content="工作室内部论坛FlyingForum
@@ -114,10 +108,7 @@ nodebb好看以及响应式设计，移动友好性等
 工作室需要一个论坛，交流平台作为QQ群的补充，以及需要一个收集反馈的地方等。
 之前想使用原来的discuz，通过模板开发之后再重新推广。但开发失败
 暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。
-nodebb好看以及响应式设计，移动友好性等
-
-准备
-安装Node参照肖神的安装方法，使用包管">
+nodebb好看以及响应式设计，移动友好性等">
 
 
 
@@ -138,7 +129,7 @@ nodebb好看以及响应式设计，移动友好性等
 
 
 
-  <link rel="canonical" href="http://blog.seventeams.CN/2017/01/01/Linux下部署开源论坛Nodebb/"/>
+  <link rel="canonical" href="http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/"/>
 
 
   <title> Linux下部署开源论坛Nodebb | seventeams </title>
@@ -383,6 +374,7 @@ nodebb好看以及响应式设计，移动友好性等
 <li>暑假接触到开源软件的概念，并在自己的服务器上部署了一两个开源服务:Ghost，nodebb等。</li>
 <li>nodebb好看以及响应式设计，移动友好性等</li>
 </ol>
+<a id="more"></a>
 <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
 <li><h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><p>参照肖神的安装方法，使用包管理器安装：<a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="external">Nodejs官方包管理器安装方法</a></p>
 <blockquote>
@@ -391,7 +383,7 @@ nodebb好看以及响应式设计，移动友好性等
 </li>
 <li><h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>为了使用最新版的Nginx，参照[官方的下载安装教程] (<a href="http://nginx.org/en/linux_packages.html#stable" target="_blank" rel="external">http://nginx.org/en/linux_packages.html#stable</a>) 找到相应的系统版本下载就行</p>
 </li>
-<li><h3 id="安装Git-root下yum安装"><a href="#安装Git-root下yum安装" class="headerlink" title="安装Git root下yum安装"></a>安装Git <em>root下yum安装</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git</div></pre></td></tr></table></figure>
+<li><h3 id="安装Git-root下yum安装"><a href="#安装Git-root下yum安装" class="headerlink" title="安装Git root下yum安装"></a>安装Git <em>root下yum安装</em></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> git</div></pre></td></tr></table></figure>
 </li>
 <li><h3 id="安装redis3-2-6"><a href="#安装redis3-2-6" class="headerlink" title="安装redis3.2.6"></a>安装redis3.2.6</h3><blockquote>
 <p>原本考虑使用mongodb的，但下载速度太慢、也比较大200+M及莫名失败，所以选择了redis，<br>附上<a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">mongodb”centos”官方安装教程</a></p>
@@ -541,7 +533,7 @@ nodebb好看以及响应式设计，移动友好性等
         <div class="ds-share flat" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/"
      data-title="Linux下部署开源论坛Nodebb"
      data-content=""
-     data-url="http://blog.seventeams.CN/2017/01/01/Linux下部署开源论坛Nodebb/">
+     data-url="http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -569,7 +561,7 @@ nodebb好看以及响应式设计，移动友好性等
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/"
-           data-title="Linux下部署开源论坛Nodebb" data-url="http://blog.seventeams.CN/2017/01/01/Linux下部署开源论坛Nodebb/">
+           data-title="Linux下部署开源论坛Nodebb" data-url="http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/">
       </div>
     
   </div>
@@ -614,7 +606,7 @@ nodebb好看以及响应式设计，移动友好性等
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -622,7 +614,7 @@ nodebb好看以及响应式设计，移动友好性等
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -698,6 +690,20 @@ nodebb好看以及响应式设计，移动友好性等
 </div>
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+  
+</div>
+
+
 
         
       </div>
