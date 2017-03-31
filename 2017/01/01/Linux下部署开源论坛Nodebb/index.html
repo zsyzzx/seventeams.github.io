@@ -5,16 +5,19 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -63,9 +66,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="学习,Linux," />
@@ -77,7 +80,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -112,42 +115,56 @@ nodebb好看以及响应式设计，移动友好性等">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: 'TH43OKGIGM',
+      apiKey: '9565a4af9120e81a1d29786204ac3e81',
+      indexName: 'blog_seventeams',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/"/>
+
+
+
 
 
   <title> Linux下部署开源论坛Nodebb | seventeams </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+
+
 
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-86831189-1', 'auto');
   ga('send', 'pageview');
 </script>
+
+
 
 
 
@@ -162,29 +179,33 @@ nodebb好看以及响应式设计，移动友好性等">
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">seventeams</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">seventeams</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">seven，seventeen，seventeam</p>
+      
   </div>
-  <p class="site-subtitle">seven，seventeen，seventeam</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -214,12 +235,12 @@ nodebb好看以及响应式设计，移动友好性等">
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            标签
+            关于
           </a>
         </li>
       
@@ -234,12 +255,12 @@ nodebb好看以及响应式设计，移动友好性等">
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            关于
+            标签
           </a>
         </li>
       
@@ -247,7 +268,7 @@ nodebb好看以及响应式设计，移动友好性等">
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="st-search-show-outputs">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -262,24 +283,34 @@ nodebb好看以及响应式设计，移动友好性等">
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
 
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
 
-  _st('install', '9xjMdzz4t6sDE4N69CaJ','2.0.0');
-</script>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
 
 
 
     </div>
   
 </nav>
+
+
 
  </div>
     </header>
@@ -294,13 +325,23 @@ nodebb好看以及响应式设计，移动友好性等">
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="seven-zsyzzx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="seventeams">
+    </span>
 
     
       <header class="post-header">
@@ -319,13 +360,21 @@ nodebb好看以及响应式设计，移动友好性等">
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-01T21:57:13+08:00" content="2017-01-01">
-              2017-01-01
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-01T21:57:13+08:00">
+                2017-01-01
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -333,29 +382,37 @@ nodebb好看以及响应式设计，移动友好性等">
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/01/01/Linux下部署开源论坛Nodebb/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
              <span id="/2017/01/01/Linux下部署开源论坛Nodebb/" class="leancloud_visitors" data-flag-title="Linux下部署开源论坛Nodebb">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -490,15 +547,26 @@ nodebb好看以及响应式设计，移动友好性等">
       
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/学习/" rel="tag">#学习</a>
+            <a href="/tags/学习/" rel="tag"># 学习</a>
           
-            <a href="/tags/Linux/" rel="tag">#Linux</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
+      
+
+      
+        
       
 
       
@@ -510,6 +578,8 @@ nodebb好看以及响应式设计，移动友好性等">
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -595,25 +665,32 @@ nodebb好看以及响应式设计，移动友好性等">
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
                alt="seven-zsyzzx" />
           <p class="site-author-name" itemprop="name">seven-zsyzzx</p>
-          <p class="site-description motion-element" itemprop="description">个人博客,记录自己</p>
+           
+              <p class="site-description motion-element" itemprop="description">个人博客,记录自己</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -621,8 +698,10 @@ nodebb好看以及响应式设计，移动友好性等">
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -657,19 +736,29 @@ nodebb好看以及响应式设计，移动友好性等">
           </div>
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工作室内部论坛FlyingForum"><span class="nav-number">1.</span> <span class="nav-text">工作室内部论坛FlyingForum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么使用nodebb"><span class="nav-number">2.</span> <span class="nav-text">为什么使用nodebb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">3.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node"><span class="nav-number">3.0.1.</span> <span class="nav-text">安装Node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Nginx"><span class="nav-number">3.0.2.</span> <span class="nav-text">安装Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git-root下yum安装"><span class="nav-number">3.0.3.</span> <span class="nav-text">安装Git root下yum安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装redis3-2-6"><span class="nav-number">3.0.4.</span> <span class="nav-text">安装redis3.2.6</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始安装Nodebb"><span class="nav-number">4.</span> <span class="nav-text">开始安装Nodebb</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载Nodebb到相应的目录"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.  下载Nodebb到相应的目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-参照官方教程安装NodeBB"><span class="nav-number">4.0.2.</span> <span class="nav-text">2. 参照官方教程安装NodeBB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装完成后，启动NodeBB"><span class="nav-number">4.0.3.</span> <span class="nav-text">3. 安装完成后，启动NodeBB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-设置nginx"><span class="nav-number">4.0.4.</span> <span class="nav-text">4. 设置nginx</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题解决-SElinux导致Nginx转发失败"><span class="nav-number">5.</span> <span class="nav-text">问题解决  SElinux导致Nginx转发失败</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nodebb插件安装"><span class="nav-number">6.</span> <span class="nav-text">nodebb插件安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将来可能出现的问题"><span class="nav-number">7.</span> <span class="nav-text">将来可能出现的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链接收集："><span class="nav-number">8.</span> <span class="nav-text">链接收集：</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
@@ -684,13 +773,14 @@ nodebb好看以及响应式设计，移动友好性等">
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2016 - 
+  &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">seven-zsyzzx</span>
 </div>
+
 
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
@@ -703,29 +793,34 @@ nodebb好看以及响应式设计，移动友好性等">
   </a>
 </div>
 
+
         
-
 <div class="busuanzi-count">
-
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
   
 
-  
   
 </div>
-
 
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -745,6 +840,9 @@ nodebb好看以及响应式设计，移动友好性等">
 
 
   
+
+
+
 
 
 
@@ -770,32 +868,32 @@ nodebb好看以及响应式设计，移动友好性等">
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -820,6 +918,7 @@ nodebb好看以及响应式设计，移动友好性等">
 
   
     
+    
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
@@ -829,10 +928,34 @@ nodebb好看以及响应式设计，移动友好性等">
 
 
 
-  
-  
+
+
+
+
+
+
+
+
+
 
   
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
 
   
 
@@ -947,6 +1070,7 @@ nodebb好看以及响应式设计，移动友好性等">
 
   
 
+  
 
 </body>
 </html>
