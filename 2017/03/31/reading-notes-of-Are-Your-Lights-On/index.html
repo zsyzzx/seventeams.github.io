@@ -1,0 +1,1155 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="感悟,笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="读书感悟书的架构及内容
+一本小读本：我大概花了2-3天看完。如果集中看的话，3h就可以看完了
+书的每个部分采用几个貌似不太相关小故事来说明其观点，有时候会不容易理解。如果为了快速阅读，可以先看下书中的主要观点。遇到看不懂的地方时候，再通过故事来加深理解，辅助自己了解作者的观点。
+书有6章节，大概结构:
+
+
+问题是什么(找到问题)$=&amp;gt;$谁的问题(谁能解决问题，与谁相关)$=&amp;gt;$解决问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reading Notes of Are Your Lights On?">
+<meta property="og:url" content="http://blog.seventeams.cn/2017/03/31/reading-notes-of-Are-Your-Lights-On/index.html">
+<meta property="og:site_name" content="seventeams">
+<meta property="og:description" content="读书感悟书的架构及内容
+一本小读本：我大概花了2-3天看完。如果集中看的话，3h就可以看完了
+书的每个部分采用几个貌似不太相关小故事来说明其观点，有时候会不容易理解。如果为了快速阅读，可以先看下书中的主要观点。遇到看不懂的地方时候，再通过故事来加深理解，辅助自己了解作者的观点。
+书有6章节，大概结构:
+
+
+问题是什么(找到问题)$=&amp;gt;$谁的问题(谁能解决问题，与谁相关)$=&amp;gt;$解决问题">
+<meta property="og:updated_time" content="2017-03-31T10:52:48.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes of Are Your Lights On?">
+<meta name="twitter:description" content="读书感悟书的架构及内容
+一本小读本：我大概花了2-3天看完。如果集中看的话，3h就可以看完了
+书的每个部分采用几个貌似不太相关小故事来说明其观点，有时候会不容易理解。如果为了快速阅读，可以先看下书中的主要观点。遇到看不懂的地方时候，再通过故事来加深理解，辅助自己了解作者的观点。
+书有6章节，大概结构:
+
+
+问题是什么(找到问题)$=&amp;gt;$谁的问题(谁能解决问题，与谁相关)$=&amp;gt;$解决问题">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'TH43OKGIGM',
+      apiKey: '9565a4af9120e81a1d29786204ac3e81',
+      indexName: 'blog_seventeams',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.seventeams.cn/2017/03/31/reading-notes-of-Are-Your-Lights-On/"/>
+
+
+
+
+
+  <title> Reading Notes of Are Your Lights On? | seventeams </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86831189-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">seventeams</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">seven，seventeen，seventeam</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.seventeams.cn/2017/03/31/reading-notes-of-Are-Your-Lights-On/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="seven-zsyzzx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="seventeams">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Reading Notes of Are Your Lights On?
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-31T18:43:55+08:00">
+                2017-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/31/reading-notes-of-Are-Your-Lights-On/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/31/reading-notes-of-Are-Your-Lights-On/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/31/reading-notes-of-Are-Your-Lights-On/" class="leancloud_visitors" data-flag-title="Reading Notes of Are Your Lights On?">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="读书感悟"><a href="#读书感悟" class="headerlink" title="读书感悟"></a>读书感悟</h1><h2 id="书的架构及内容"><a href="#书的架构及内容" class="headerlink" title="书的架构及内容"></a>书的架构及内容</h2><ol>
+<li>一本小读本：我大概花了2-3天看完。如果集中看的话，3h就可以看完了</li>
+<li>书的每个部分采用几个貌似不太相关小故事来说明其观点，有时候会不容易理解。如果为了快速阅读，可以先看下书中的主要观点。遇到看不懂的地方时候，再通过故事来加深理解，辅助自己了解作者的观点。</li>
+<li>书有6章节，大概结构:</li>
+</ol>
+<ul>
+<li>问题是什么(找到问题)$=&gt;$谁的问题(谁能解决问题，与谁相关)$=&gt;$解决问题(问题源头，是否真的需要解决问题)。</li>
+<li>其中6章节中有3章节说明：“问题是什么”。书中一直强调：<strong>找到问题比解决问题难</strong><a id="more"></a>
+</li>
+</ul>
+<h2 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h2><ol>
+<li>书中的道理简单却深刻。书中的情形和平时我遇到问题解决问题的情形十分相似，并用精准的语言把我的疑惑表达出来。以后再遇到问题困境时，就知道该怎么处理了</li>
+<li>一本讲述方法论的书，理解上没有难度。本书的方法侧重于推迟解决，或者让问题自解决。<ol>
+<li>推迟解决：找到真正的问题，发现问题，谁需要解决问题，</li>
+<li>问题自解决：找到问题源头，谁发现问题谁解决问题</li>
+</ol>
+</li>
+<li>虽说这本书是为程序员写的书，我觉得任何人想解决问题的人都需要读一下，而且我没有发现与计算机程序相关的观点，更多的是挖掘需求，如何与人打交道等(也有可能我的功夫没到家)</li>
+<li>结合之前看得<a href="https://book.douban.com/subject/20428922/" target="_blank" rel="external">学会提问</a>这本书，有以下相同点<ul>
+<li>批判性思维: 不完全相信其他人的结论(解决方法)</li>
+<li>多想想其他结论（解决方法）</li>
+<li>注意表达方式(产生歧义)</li>
+<li>…..等等（还需挖掘）</li>
+</ul>
+</li>
+</ol>
+<p><strong>最后的感悟：读书，是为了更好的生活</strong><br><strong>这是一本启发性的方法论书籍</strong></p>
+<blockquote>
+<p>以下是<a href="https://book.douban.com/subject/25772550/" target="_blank" rel="external">你的灯亮着么?</a>的读书笔记</p>
+</blockquote>
+<h1 id="1-问题是什么"><a href="#1-问题是什么" class="headerlink" title="1. 问题是什么"></a>1. 问题是什么</h1><blockquote>
+<ul>
+<li>初出茅庐的问题解决者总在还没定义好问题的时候就仓促地给出解决方案。</li>
+<li>迫于外界环境的压力，经验丰富的问题解决者有时也耐不住性子。</li>
+</ul>
+</blockquote>
+<p>问题解决者应该问的问题 <strong>问题解决者就是能为其他人解决多个问题的人</strong></p>
+<blockquote>
+<ul>
+<li>谁碰到了问题   </li>
+<li>问题的本质是什么</li>
+</ul>
+</blockquote>
+<h2 id="你的问题是什么"><a href="#你的问题是什么" class="headerlink" title="你的问题是什么"></a>你的问题是什么</h2><p>问题就是理想状态和现实状态之间的差别。</p>
+<blockquote>
+<p>现实往超乎你想象的方向走，在这种差别中产生不适感，认为产生了问题。解决问题就成了缩小现实和理想状态的差别</p>
+<p>忽略问题：这种方法其实是让我们降低敏感度。当敏感度降低到一定程度时，我们就再也感受不到事物现在的状态和理想中的状态有什么区别了。</p>
+</blockquote>
+<p>幻觉中的问题是真正的问题</p>
+<blockquote>
+<p>有时候自己内心(直觉)会发现问题，但自己总是不想承认或者付出行动去解决问题</p>
+</blockquote>
+<p>我们永远不知道问题是什么，直到我们彻底摆脱了这些问题。</p>
+<blockquote>
+<p>问题环环相扣，一个问题解决了还有可能有其他问题，问题混杂在一起，根本理不清问题是什么</p>
+</blockquote>
+<h2 id="别去费力帮缺乏幽默感的人解决问题。"><a href="#别去费力帮缺乏幽默感的人解决问题。" class="headerlink" title="别去费力帮缺乏幽默感的人解决问题。"></a>别去费力帮缺乏幽默感的人解决问题。</h2><blockquote>
+<p>不懂为什么，个人认为：问题解决不是个简单的事情，缺乏幽默感，乐观精神，有可能在无限的问题中被压垮</p>
+</blockquote>
+<h1 id="2-这次问题是什么"><a href="#2-这次问题是什么" class="headerlink" title="2. 这次问题是什么"></a>2. 这次问题是什么</h1><h2 id="不要把别人的解决方法作为定义问题的方法。"><a href="#不要把别人的解决方法作为定义问题的方法。" class="headerlink" title="不要把别人的解决方法作为定义问题的方法。"></a><strong>不要把别人的解决方法作为定义问题的方法。</strong></h2><ul>
+<li>别把问题的解决方案误当作问题的定义，当这个解决方案是由你提出的时候尤其如此。</li>
+<li>即使问题已经解决，你也无法确定你的问题定义是正确的<blockquote>
+<p>这需要批判性思维，找到真正的问题，不要被表面所迷惑</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="如果你解决问题太过神速，别人根本不会相信你真的解决了问题"><a href="#如果你解决问题太过神速，别人根本不会相信你真的解决了问题" class="headerlink" title="如果你解决问题太过神速，别人根本不会相信你真的解决了问题"></a>如果你解决问题太过神速，别人根本不会相信你真的解决了问题</h2><blockquote>
+<p>符合人心，太过急躁也导致没有认清问题<br>道德考虑遇到有利可图的问题时往往很快就烟消云散</p>
+</blockquote>
+<h2 id="核心问题是什么？"><a href="#核心问题是什么？" class="headerlink" title="核心问题是什么？"></a>核心问题是什么？</h2><ul>
+<li>不要仓促下结论，但也不要忽视第一印象。</li>
+<li>永远无法确定已经找到的问题定义是正确的，但是永远不要停下寻找正确定义的脚步<blockquote>
+<p>寻找问题是个长期工程，需要边解决边寻找定义</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="3-问题到底是什么"><a href="#3-问题到底是什么" class="headerlink" title="3. 问题到底是什么"></a>3. 问题到底是什么</h1><p><strong>每一个解决方案都是下一个问题的来源</strong>。</p>
+<h2 id="某些问题最困难的部分就在于发现问题存在"><a href="#某些问题最困难的部分就在于发现问题存在" class="headerlink" title="某些问题最困难的部分就在于发现问题存在"></a>某些问题最困难的部分就在于发现问题存在</h2><blockquote>
+<p>看看你对问题的理解，如果想不出至少三个可能有出错的地方，你就没有真正理解这个问题。<br><em>风险规避，提前准备</em>，也拓展思维，举一反三</p>
+</blockquote>
+<p>设计者的工作就是事先为别人解决问题。(有时候，设计图的解决方案会带来更多的问题)</p>
+<blockquote>
+<p>问题的关键就在于首先要意识到问题的存在，或者让设计者意识到有问题存在</p>
+</blockquote>
+<h2 id="大部分情况下，不得不面对这些问题的人会成功找到办法。"><a href="#大部分情况下，不得不面对这些问题的人会成功找到办法。" class="headerlink" title="大部分情况下，不得不面对这些问题的人会成功找到办法。"></a>大部分情况下，不得不面对这些问题的人会成功找到办法。</h2><blockquote>
+<p>把问题暴露在自己面前，或者把自己处于问题前面</p>
+</blockquote>
+<h2 id="要想得到一个全新的视角，几乎任何一个人都可以当帮你的“顾问”"><a href="#要想得到一个全新的视角，几乎任何一个人都可以当帮你的“顾问”" class="headerlink" title="要想得到一个全新的视角，几乎任何一个人都可以当帮你的“顾问”"></a>要想得到一个全新的视角，几乎任何一个人都可以当帮你的“顾问”</h2><ul>
+<li>为了向一个没有参与其中的人解释情况，你自己也不得不换一个新的角度来看问题，这样也就发现了新的不协调之处（使用外部力量来促进视角转换）</li>
+<li>与最初错误地定义了问题的人相比，一个拿到了新的解决方案的人更容易看到哪里不协调。可是一旦最初的陌生感褪去，人所共有的适应能力就会忽略不协调之处。</li>
+<li>借助外国人、盲人、儿童来检验你给出的定义，或者让自己设身处地地站到外国人、盲人、儿童的角度上来检验。<br><strong>在把一项“解决方案”付诸实践之前从各个视角对其审视一遍，不是比等到出现灾难性后果才意识到问题存在好得多吗。</strong></li>
+</ul>
+<h2 id="找到问题所属的层面"><a href="#找到问题所属的层面" class="headerlink" title="找到问题所属的层面"></a>找到问题所属的层面</h2><blockquote>
+<p>需要什么程度，需要达到什么目的等？</p>
+</blockquote>
+<p>可问的问题来找到：<strong>我需要解决的问题是什么？</strong></p>
+<blockquote>
+<ul>
+<li>如果想得到不同的解决方案，该怎样变换问题的表述方式？</li>
+</ul>
+</blockquote>
+<p>当你沿着定义问题的道路疲倦前行时，过一会儿就要回头看看，确认自己没有走错路。</p>
+<h2 id="注意问题的表达方式"><a href="#注意问题的表达方式" class="headerlink" title="注意问题的表达方式"></a>注意问题的表达方式</h2><blockquote>
+<p>不同的表达会导致不同的结果</p>
+</blockquote>
+<h1 id="4-这是谁的问题"><a href="#4-这是谁的问题" class="headerlink" title="4. 这是谁的问题"></a>4. 这是谁的问题</h1><blockquote>
+<p>谁遇到问题，谁需要解决问题，谁能解决问题</p>
+</blockquote>
+<h2 id="当别人可以妥善解决自己的问题时，不要越俎代庖。"><a href="#当别人可以妥善解决自己的问题时，不要越俎代庖。" class="headerlink" title="当别人可以妥善解决自己的问题时，不要越俎代庖。"></a>当别人可以妥善解决自己的问题时，不要越俎代庖。</h2><p>如果这是别人的问题，就把它当成是别人的问题。</p>
+<blockquote>
+<p>每个人对问题的理解程度不一样，解决方法也不一样，亲身经历者更有话语权</p>
+</blockquote>
+<h2 id="如果一个人处于解决问题的位置，却并不受问题困扰，那就采取一些行动使他能亲身体验到问题。"><a href="#如果一个人处于解决问题的位置，却并不受问题困扰，那就采取一些行动使他能亲身体验到问题。" class="headerlink" title="如果一个人处于解决问题的位置，却并不受问题困扰，那就采取一些行动使他能亲身体验到问题。"></a>如果一个人处于解决问题的位置，却并不受问题困扰，那就采取一些行动使他能亲身体验到问题。</h2><blockquote>
+<p>让他亲身体验一下，事实说明一切</p>
+</blockquote>
+<p>为了改变局面，试着把责任归到自己身上——哪怕只有一会儿也行。</p>
+<blockquote>
+<p>尝试想下：“我的问题”。</p>
+</blockquote>
+<p>如果人们真的开着车灯，一个小小的提醒可能比复杂的解决方案更有效。提示:<em>你的灯亮着吗？</em></p>
+<blockquote>
+<p>提出问题，提醒，让人们自行解决</p>
+</blockquote>
+<h1 id="5-问题来自哪里"><a href="#5-问题来自哪里" class="headerlink" title="5. 问题来自哪里"></a>5. 问题来自哪里</h1><h2 id="逃避借口"><a href="#逃避借口" class="headerlink" title="逃避借口"></a>逃避借口</h2><ul>
+<li>“事情就是这样的。这就是自然规律，或者说是人的天性，我们没法改变它。”  <em>这是变相的逃避问题</em></li>
+<li>“命运”只是“天性”的别名而已，它是世界上所有不作为行为的头号借口。</li>
+<li>天性对人们和人们的问题漠不关心，它抛给人们的问题最难解决。<blockquote>
+<p>简单的把问题归结到一个最难的境地，阻碍自己去思考，去尝试解决问题，并为自己找个很好的逃避接口</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="问题源头"><a href="#问题源头" class="headerlink" title="问题源头:"></a>问题源头:</h2><p>问题其实出在问题解决者自己身上，<br>（大多数情况下，问题的根源在你自己身上。）</p>
+<p>有可能变成问题的部分或阶段:<strong>解决问题的过程、人员或者机构自身</strong>也可能成为问题</p>
+<p>##考试：在有限时间内，找到合适的方法解决谜题</p>
+<blockquote>
+<p>试题能就如何解题提供很多一般性的线索。<br>是“人”出题，问题总有迹可循, 现实的问题哪里都有可能发生，什么情况都有<br>类似，军事问题：因为对手是已知的，如果合理利用他的特点，就能大大减少需要考虑的问题定义的数量。</p>
+</blockquote>
+<h1 id="6-我们真的需要解决问题吗？"><a href="#6-我们真的需要解决问题吗？" class="headerlink" title="6. 我们真的需要解决问题吗？"></a>6. 我们真的需要解决问题吗？</h1><p>在大多数情况下，只要知道问题是什么，解决问题就是一件非常不值一提的事情。</p>
+<blockquote>
+<p>书中摘录：<br>也许之所以学校总是培养出能力不足的问题解决者，就是因为学生们从来没有机会自己去发现问题是什么，而是老师说问题是什么就是什么，<br>然后形成本能：紧紧抓住看起来像“问题”的第一个表述，然后尽快解决它，注重速度</p>
+</blockquote>
+<p>无论表面上表现得如何，在你提供他们所要求的东西之前，他们极少知道自己想要什么。<br>从最后的情况看，想要真正解决问题的人并不是很多</p>
+<blockquote>
+<p>有时候问题的提出者(代号F)，只是想要某种解决方法，而不是发现问题并把它解决。<br>我就在想：我是应该解决问题，还是按照F的想法来重复工作，找些更麻烦的解决方法，导致更多的问题<br>我倾向于：真正的解决问题，但是现实这样的机会可能不多，然后我可能会拒绝吧，但是：我好像还没学会拒绝</p>
+</blockquote>
+<h2 id="我真的想找到解决方案吗？"><a href="#我真的想找到解决方案吗？" class="headerlink" title="我真的想找到解决方案吗？"></a>我真的想找到解决方案吗？</h2><ul>
+<li>人们永远没有足够的时间把它做好，但永远有足够的时间重新来过。<br>另一个描述：</li>
+<li>人们永远没有足够的时间去考虑到底是不是想要它，但永远有足够的时间去为之后悔。<blockquote>
+<p>我的理解:<br>人的精力有限，但总有人没事找事干，前期花点时间去思考是否需要去做，总比后面长期补锅或后悔好。做好时间分配</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="习惯化"><a href="#习惯化" class="headerlink" title="习惯化"></a>习惯化</h2><ul>
+<li>即当一种刺激重复出现时，人类对它的反应逐步递减。习惯化使人们能忽略环境中恒定不变的东西，从而简化自己的生活。（新事物最富有刺激性，也更容易被发现问题）</li>
+<li>在人们思考问题的时候，已经习以为常的事物总会被忽略，不纳入考虑范围<blockquote>
+<p>有时候过于简单的思维(习惯思维)会迷惑我们自己，即使我们的生活、工作出现了问题，也不会想着去解决，或者逐渐适应的不合理，有问题的解决方案</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="首先，对自己要忠实。"><a href="#首先，对自己要忠实。" class="headerlink" title="首先，对自己要忠实。"></a>首先，对自己要忠实。</h2><p>在这件事上，为了忠于自己，必须在接近一个解决方案，甚至是一个问题的定义之前就考虑到道德问题，并抛弃掉感性的因素。这一类的考虑永远不会浪费时间。因为，无论在从业者看来解决问题是多么引人入胜，这永远不是一项道德中立的活动。</p>
+<blockquote>
+<p>解决问题就是做决定，总有些影响(对社会，对生活)，开始行动前，多思考一点，忠于自己</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/感悟/" rel="tag"># 感悟</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/26/flyingstudio之胡言乱语/" rel="next" title="Flyingstudio之胡言乱语">
+                <i class="fa fa-chevron-left"></i> Flyingstudio之胡言乱语
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/31/reading-notes-of-Are-Your-Lights-On/"
+     data-title="Reading Notes of Are Your Lights On?"
+     data-content=""
+     data-url="http://blog.seventeams.cn/2017/03/31/reading-notes-of-Are-Your-Lights-On/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/31/reading-notes-of-Are-Your-Lights-On/"
+           data-title="Reading Notes of Are Your Lights On?" data-url="http://blog.seventeams.cn/2017/03/31/reading-notes-of-Are-Your-Lights-On/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="seven-zsyzzx" />
+          <p class="site-author-name" itemprop="name">seven-zsyzzx</p>
+           
+              <p class="site-description motion-element" itemprop="description">个人博客,记录自己</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.flyingstudio.online/" title="flyingstudio" target="_blank">flyingstudio</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#读书感悟"><span class="nav-number">1.</span> <span class="nav-text">读书感悟</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#书的架构及内容"><span class="nav-number">1.1.</span> <span class="nav-text">书的架构及内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人感悟"><span class="nav-number">1.2.</span> <span class="nav-text">个人感悟</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-问题是什么"><span class="nav-number">2.</span> <span class="nav-text">1. 问题是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#你的问题是什么"><span class="nav-number">2.1.</span> <span class="nav-text">你的问题是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#别去费力帮缺乏幽默感的人解决问题。"><span class="nav-number">2.2.</span> <span class="nav-text">别去费力帮缺乏幽默感的人解决问题。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-这次问题是什么"><span class="nav-number">3.</span> <span class="nav-text">2. 这次问题是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不要把别人的解决方法作为定义问题的方法。"><span class="nav-number">3.1.</span> <span class="nav-text">不要把别人的解决方法作为定义问题的方法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果你解决问题太过神速，别人根本不会相信你真的解决了问题"><span class="nav-number">3.2.</span> <span class="nav-text">如果你解决问题太过神速，别人根本不会相信你真的解决了问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心问题是什么？"><span class="nav-number">3.3.</span> <span class="nav-text">核心问题是什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-问题到底是什么"><span class="nav-number">4.</span> <span class="nav-text">3. 问题到底是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#某些问题最困难的部分就在于发现问题存在"><span class="nav-number">4.1.</span> <span class="nav-text">某些问题最困难的部分就在于发现问题存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大部分情况下，不得不面对这些问题的人会成功找到办法。"><span class="nav-number">4.2.</span> <span class="nav-text">大部分情况下，不得不面对这些问题的人会成功找到办法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要想得到一个全新的视角，几乎任何一个人都可以当帮你的“顾问”"><span class="nav-number">4.3.</span> <span class="nav-text">要想得到一个全新的视角，几乎任何一个人都可以当帮你的“顾问”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找到问题所属的层面"><span class="nav-number">4.4.</span> <span class="nav-text">找到问题所属的层面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意问题的表达方式"><span class="nav-number">4.5.</span> <span class="nav-text">注意问题的表达方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-这是谁的问题"><span class="nav-number">5.</span> <span class="nav-text">4. 这是谁的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当别人可以妥善解决自己的问题时，不要越俎代庖。"><span class="nav-number">5.1.</span> <span class="nav-text">当别人可以妥善解决自己的问题时，不要越俎代庖。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果一个人处于解决问题的位置，却并不受问题困扰，那就采取一些行动使他能亲身体验到问题。"><span class="nav-number">5.2.</span> <span class="nav-text">如果一个人处于解决问题的位置，却并不受问题困扰，那就采取一些行动使他能亲身体验到问题。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-问题来自哪里"><span class="nav-number">6.</span> <span class="nav-text">5. 问题来自哪里</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#逃避借口"><span class="nav-number">6.1.</span> <span class="nav-text">逃避借口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题源头"><span class="nav-number">6.2.</span> <span class="nav-text">问题源头:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-我们真的需要解决问题吗？"><span class="nav-number">7.</span> <span class="nav-text">6. 我们真的需要解决问题吗？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我真的想找到解决方案吗？"><span class="nav-number">7.1.</span> <span class="nav-text">我真的想找到解决方案吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#习惯化"><span class="nav-number">7.2.</span> <span class="nav-text">习惯化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首先，对自己要忠实。"><span class="nav-number">7.3.</span> <span class="nav-text">首先，对自己要忠实。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">seven-zsyzzx</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"seventeams"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XSuHXMUAW7oym6yPOYfHuMtD-gzGzoHsz", "nfGfdjsnnKMAjF6ub666NVDA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
