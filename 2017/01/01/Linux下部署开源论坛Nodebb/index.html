@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="seventeams" type="application/atom+xml" />
+
 
 
 
@@ -387,7 +389,8 @@ nodebb好看以及响应式设计，移动友好性等">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/01/01/Linux下部署开源论坛Nodebb/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/01/Linux下部署开源论坛Nodebb/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -600,25 +603,6 @@ nodebb好看以及响应式设计，移动友好性等">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/"
-     data-title="Linux下部署开源论坛Nodebb"
-     data-content=""
-     data-url="http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -630,8 +614,11 @@ nodebb好看以及响应式设计，移动友好性等">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/01/Linux下部署开源论坛Nodebb/"
-           data-title="Linux下部署开源论坛Nodebb" data-url="http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
     
   </div>
@@ -680,7 +667,7 @@ nodebb好看以及响应式设计，移动友好性等">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -710,6 +697,13 @@ nodebb好看以及响应式设计，移动友好性等">
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
@@ -773,7 +767,7 @@ nodebb好看以及响应式设计，移动友好性等">
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -899,39 +893,51 @@ nodebb好看以及响应式设计，移动友好性等">
 
   
 
+
   
+
     
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"seventeams"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
+      <script id="dsq-count-scr" src="https://seventeams.disqus.com/count.js" async></script>
     
+
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://blog.seventeams.cn/2017/01/01/Linux下部署开源论坛Nodebb/';
+          this.page.identifier = '2017/01/01/Linux下部署开源论坛Nodebb/';
+          this.page.title = 'Linux下部署开源论坛Nodebb';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://seventeams.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
 
 
 
+  
 
 
 
