@@ -8,8 +8,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>个人博客,记录自己</description>
-    <pubDate>Mon, 08 May 2017 14:17:36 GMT</pubDate>
+    <pubDate>Wed, 07 Jun 2017 10:27:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Algs4中基础排序的java代码实现</title>
+      <link>http://blog.seventeams.cn/2017/06/07/notes-of-elementary-sorts-in-algs4/</link>
+      <guid>http://blog.seventeams.cn/2017/06/07/notes-of-elementary-sorts-in-algs4/</guid>
+      <pubDate>Wed, 07 Jun 2017 10:11:43 GMT</pubDate>
+      <description>
+      
+        &lt;h1 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h1&gt;&lt;h2 id=&quot;特性：&quot;&gt;&lt;a href=&quot;#特性：&quot; class=&quot;headerlink&quot; title=&quot;特性：&quot;&gt;&lt;/a&gt;特性：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;每两个元素进行比较，大的逐渐往一边移动&lt;/li&gt;
+&lt;li&gt;最小(最大)的元素总是第一个被排好序，并集中在数组的末端(或者开始)&lt;h2 id=&quot;基本写法&quot;&gt;&lt;a href=&quot;#基本写法&quot; class=&quot;headerlink&quot; title=&quot;基本写法:&quot;&gt;&lt;/a&gt;基本写法:&lt;/h2&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 需要自己实现比较和交换函数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;bubblesort&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Comparable[]a)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; n = a.length;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;i&amp;lt;n-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;i++)&amp;#123;&lt;span class=&quot;comment&quot;&gt;//记录已经排序的元素的数量&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;j&amp;lt;n-i-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;j++)&amp;#123;&lt;span class=&quot;comment&quot;&gt;//开始排序，除去了已经排序了的&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(a[j]&amp;lt;a[j+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;])&amp;#123;  &lt;span class=&quot;comment&quot;&gt;//降序排列&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            swap(a,j,j+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//比较函数参考&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Comparable v, Comparable w)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; v.compareTo(w) &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//交换函数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;exchange&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Object[] a, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        Object swap = a[i];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        a[i] = a[j];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        a[j] = swap;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上面的写法是最开始能够想到的,但如果把排序过程打印出来的话，也可以用这个算法派有序的输入，就会发现重复排序的情况，就是说这个程序会一直执行下去，不管输入是否已经有序&lt;br&gt;&lt;img src=&quot;/2017/06/07/notes-of-elementary-sorts-in-algs4/../notes-of-elementary-sorts-in-algs4/592e7984ab6441510f0011b6.png&quot; alt=&quot;bubble sort&quot;&gt;&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.seventeams.cn/2017/06/07/notes-of-elementary-sorts-in-algs4/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>参与京东共读的一些感受</title>
@@ -32,7 +52,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;书的选择&lt;br&gt;偏人文,社科类书，而且有大部分成功学书，我的经验是2本热门书(经典书)+2本冷门书(划水的)&lt;/li&gt;
-&lt;li&gt;关注&lt;strong&gt;京东阅读&lt;/strong&gt;即可获取到相关信息，目前已进行到第四期
+&lt;li&gt;关注&lt;strong&gt;京东阅读&lt;/strong&gt;即可获取到相关信息，目前已进行到第四期&lt;/li&gt;&lt;/ul&gt;
       
       </description>
       
@@ -49,7 +69,7 @@
         &lt;h1 id=&quot;1-腾讯产品群面&quot;&gt;&lt;a href=&quot;#1-腾讯产品群面&quot; class=&quot;headerlink&quot; title=&quot;1. 腾讯产品群面&quot;&gt;&lt;/a&gt;1. 腾讯产品群面&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;流水账：4.12收到面试短信，当天下午21点左右高铁到南京，22点左右到旅馆并洗漱完毕，匆匆忙忙修改简历并且大概看了下面试经验和面试题，顺便复习了一下以前看过的书籍和知识，12点左右睡觉。第二天6:30起床，再次看自己之前整理的东西，8点左右退了房，走路去找打印店，顺便吃了个早餐。然后9点到面试现场，并认识了同组的人，聊了一下。10点面试准时开始。&lt;/li&gt;
 &lt;li&gt;面试过程:签到接待人员是漂亮的姐姐，面试的人是帅哥/手动无耻脸。自我介绍后开始，面试题是一个视频内容相关，最后的讨论结果出来后，我还是云里雾里的，总感觉没有得到一个结果，但对于个人来说还是没有坚持住自己的观点，或者说表达方式不当，除此之外我对题目的理解程度也不深，曾经看过但没有仔细想过这些事情。面试时，有点激进了，随意发表不适合的观点。&lt;blockquote&gt;
-&lt;p&gt;面试经验不足，也不知道写什么，面试结束后和研二的学长学姐聊了几句，也学了很多。差距有点大。。。/手动羞愧脸。&lt;br&gt;面试的事情过去了，说说南京经历&lt;/p&gt;
+&lt;p&gt;面试经验不足，也不知道写什么，面试结束后和研二的学长学姐聊了几句，也学了很多。差距有点大。。。/手动羞愧脸。&lt;br&gt;面试的事情过去了，说说南京经历&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;&lt;/ul&gt;
       
       </description>
       
@@ -70,7 +90,7 @@
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;问题是什么(找到问题)$=&amp;gt;$谁的问题(谁能解决问题，与谁相关)$=&amp;gt;$解决问题(问题源头，是否真的需要解决问题)。&lt;/li&gt;
-&lt;li&gt;其中6章节中有3章节说明：“问题是什么”。书中一直强调：&lt;strong&gt;找到问题比解决问题难&lt;/strong&gt;
+&lt;li&gt;其中6章节中有3章节说明：“问题是什么”。书中一直强调：&lt;strong&gt;找到问题比解决问题难&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;
       
       </description>
       

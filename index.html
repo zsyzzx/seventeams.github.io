@@ -319,6 +319,181 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.seventeams.cn/2017/06/07/notes-of-elementary-sorts-in-algs4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="seven-zsyzzx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="seventeams">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/07/notes-of-elementary-sorts-in-algs4/" itemprop="url">
+                  Algs4中基础排序的java代码实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T18:11:43+08:00">
+                2017-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coursera-algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">coursera_algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/07/notes-of-elementary-sorts-in-algs4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/07/notes-of-elementary-sorts-in-algs4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/07/notes-of-elementary-sorts-in-algs4/" class="leancloud_visitors" data-flag-title="Algs4中基础排序的java代码实现">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><h2 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h2><ul>
+<li>每两个元素进行比较，大的逐渐往一边移动</li>
+<li>最小(最大)的元素总是第一个被排好序，并集中在数组的末端(或者开始)<h2 id="基本写法"><a href="#基本写法" class="headerlink" title="基本写法:"></a>基本写法:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 需要自己实现比较和交换函数</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(Comparable[]a)</span></span>&#123;</div><div class="line"><span class="keyword">int</span> n = a.length;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n-<span class="number">1</span>;i++)&#123;<span class="comment">//记录已经排序的元素的数量</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-i-<span class="number">1</span>;j++)&#123;<span class="comment">//开始排序，除去了已经排序了的</span></div><div class="line">        <span class="keyword">if</span>(a[j]&lt;a[j+<span class="number">1</span>])&#123;  <span class="comment">//降序排列</span></div><div class="line">            swap(a,j,j+<span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//比较函数参考</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(Comparable v, Comparable w)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> v.compareTo(w) &lt; <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"><span class="comment">//交换函数</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exchange</span><span class="params">(Object[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</div><div class="line">        Object swap = a[i];</div><div class="line">        a[i] = a[j];</div><div class="line">        a[j] = swap;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>上面的写法是最开始能够想到的,但如果把排序过程打印出来的话，也可以用这个算法派有序的输入，就会发现重复排序的情况，就是说这个程序会一直执行下去，不管输入是否已经有序<br><img src="/2017/06/07/notes-of-elementary-sorts-in-algs4/../notes-of-elementary-sorts-in-algs4/592e7984ab6441510f0011b6.png" alt="bubble sort"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/07/notes-of-elementary-sorts-in-algs4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.seventeams.cn/2017/05/07/Something-About-Reading-Together-in-Jd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -453,7 +628,7 @@
 </ul>
 </li>
 <li>书的选择<br>偏人文,社科类书，而且有大部分成功学书，我的经验是2本热门书(经典书)+2本冷门书(划水的)</li>
-<li>关注<strong>京东阅读</strong>即可获取到相关信息，目前已进行到第四期
+<li>关注<strong>京东阅读</strong>即可获取到相关信息，目前已进行到第四期</li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/07/Something-About-Reading-Together-in-Jd/#more" rel="contents">
@@ -625,7 +800,7 @@
           <h1 id="1-腾讯产品群面"><a href="#1-腾讯产品群面" class="headerlink" title="1. 腾讯产品群面"></a>1. 腾讯产品群面</h1><ul>
 <li>流水账：4.12收到面试短信，当天下午21点左右高铁到南京，22点左右到旅馆并洗漱完毕，匆匆忙忙修改简历并且大概看了下面试经验和面试题，顺便复习了一下以前看过的书籍和知识，12点左右睡觉。第二天6:30起床，再次看自己之前整理的东西，8点左右退了房，走路去找打印店，顺便吃了个早餐。然后9点到面试现场，并认识了同组的人，聊了一下。10点面试准时开始。</li>
 <li>面试过程:签到接待人员是漂亮的姐姐，面试的人是帅哥/手动无耻脸。自我介绍后开始，面试题是一个视频内容相关，最后的讨论结果出来后，我还是云里雾里的，总感觉没有得到一个结果，但对于个人来说还是没有坚持住自己的观点，或者说表达方式不当，除此之外我对题目的理解程度也不深，曾经看过但没有仔细想过这些事情。面试时，有点激进了，随意发表不适合的观点。<blockquote>
-<p>面试经验不足，也不知道写什么，面试结束后和研二的学长学姐聊了几句，也学了很多。差距有点大。。。/手动羞愧脸。<br>面试的事情过去了，说说南京经历</p>
+<p>面试经验不足，也不知道写什么，面试结束后和研二的学长学姐聊了几句，也学了很多。差距有点大。。。/手动羞愧脸。<br>面试的事情过去了，说说南京经历</p></blockquote></li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/13/gossip-at-Nanjing/#more" rel="contents">
@@ -801,7 +976,7 @@
 </ol>
 <ul>
 <li>问题是什么(找到问题)$=&gt;$谁的问题(谁能解决问题，与谁相关)$=&gt;$解决问题(问题源头，是否真的需要解决问题)。</li>
-<li>其中6章节中有3章节说明：“问题是什么”。书中一直强调：<strong>找到问题比解决问题难</strong>
+<li>其中6章节中有3章节说明：“问题是什么”。书中一直强调：<strong>找到问题比解决问题难</strong></li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/31/reading-notes-of-Are-Your-Lights-On/#more" rel="contents">
@@ -1904,178 +2079,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.seventeams.cn/2016/11/20/复习编译/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="seven-zsyzzx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="seventeams">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/20/复习编译/" itemprop="url">
-                  复习编译
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-20T20:55:53+08:00">
-                2016-11-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/记录/" itemprop="url" rel="index">
-                    <span itemprop="name">记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/11/20/复习编译/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/11/20/复习编译/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/11/20/复习编译/" class="leancloud_visitors" data-flag-title="复习编译">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="开始复习编译了"><a href="#开始复习编译了" class="headerlink" title="开始复习编译了"></a>开始复习编译了</h1><p><del>记流水账了</del></p>
-<blockquote>
-<p>早上8点醒，玩手机到10点，学了不到1h，中午吃完饭后，学了30m，下午14点醒，玩手机到15点，听大神讲课，随意刷ppt1h左右，认真学了1h，吃完晚饭后，再认真学了1h,接着从20点到现在一直在码字，而且期间还花了时间来闲逛。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/20/复习编译/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2125,7 +2128,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2136,7 +2139,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
