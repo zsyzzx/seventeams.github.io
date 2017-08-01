@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="blog, seventeams,seven,seventeen" />
+  <meta name="keywords" content="学习,笔记," />
 
 
 
@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://blog.seventeams.cn/2017/08/01/QuickSort-in-algs4/../QuickSort-in-algs4/59531b5bab64412994000805.png">
 <meta property="og:image" content="http://blog.seventeams.cn/2017/08/01/QuickSort-in-algs4/../QuickSort-in-algs4/59531b5cab6441299400080a.png">
 <meta property="og:image" content="http://blog.seventeams.cn/2017/08/01/QuickSort-in-algs4/../QuickSort-in-algs4/59807862ab64414104001aa0.png">
-<meta property="og:updated_time" content="2017-08-01T13:24:22.950Z">
+<meta property="og:updated_time" content="2017-08-01T13:39:24.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QuickSort">
 <meta name="twitter:description" content="快速排序介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序
@@ -392,6 +392,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coursera-algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">coursera_algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -446,6 +468,7 @@
 <li>排序<br>逐渐是子数组排序，从而整个数组是有序的</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 分片, 分为两片&lt;v 与&gt;v  </span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i = lo, j = hi + <span class="number">1</span>;</div><div class="line">        Comparable v = a[lo];</div><div class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">while</span> (less(a[++i], v)) <span class="keyword">if</span> (i == hi) <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">while</span> (less(v,a[--j])) <span class="keyword">if</span>(j == lo) <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">if</span> (i&gt;=j) <span class="keyword">break</span>;</div><div class="line">            exchange(a,i,j);</div><div class="line">        &#125;</div><div class="line">        exchange(a,j,lo);   </div><div class="line">        <span class="keyword">return</span> j;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 排序</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a ,<span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (hi &lt;= lo) <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> j = partition(a,lo,hi);</div><div class="line">        sort(a,lo,j-<span class="number">1</span>);</div><div class="line">        sort(a,j+<span class="number">1</span>,hi);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line"><span class="comment">// 对外使用接口</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparable[] a)</span></span>&#123;</div><div class="line">        StdRandom.shuffle(a);  <span class="comment">// 使数组乱序,快排更高效</span></div><div class="line">        sort(a,<span class="number">0</span>,a.length-<span class="number">1</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><h3 id="三向切分-对重复值快速排序的优化"><a href="#三向切分-对重复值快速排序的优化" class="headerlink" title="三向切分: 对重复值快速排序的优化"></a>三向切分: 对重复值快速排序的优化</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h4><p><img src="/2017/08/01/QuickSort-in-algs4/../QuickSort-in-algs4/59531b5bab64412994000804.png" alt="quick3way"></p>
 <h4 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略:"></a>优化策略:</h4><ul>
 <li>将数组分为三块</li>
@@ -503,6 +526,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习/" rel="tag"># 学习</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+        </div>
       
 
       
