@@ -319,6 +319,175 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.seventeams.cn/2017/08/02/学习dagger2-第一天/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="seven-zsyzzx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="seventeams">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/02/学习dagger2-第一天/" itemprop="url">
+                  学习Dagger2 第一天
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-02T21:29:01+08:00">
+                2017-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/02/学习dagger2-第一天/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/02/学习dagger2-第一天/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/08/02/学习dagger2-第一天/" class="leancloud_visitors" data-flag-title="学习Dagger2 第一天">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Dagger2-学习"><a href="#Dagger2-学习" class="headerlink" title="Dagger2 学习"></a>Dagger2 学习</h1><h2 id="使用方法-Demo代码"><a href="#使用方法-Demo代码" class="headerlink" title="使用方法(Demo代码)"></a>使用方法(Demo代码)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Component</span></div><div class="line"><span class="comment">/*</span></div><div class="line">* 中间人，注入器</div><div class="line">* 处理依赖提供（目标类依赖实力）和依赖需求者（目标类）</div><div class="line">* 可以是抽象类或者是个接口</div><div class="line">*/</div><div class="line"><span class="meta">@Component</span>(modules = CarMoudle.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CarComponent</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">inject</span><span class="params">(Car car)</span></span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Module</span></div><div class="line"><span class="comment">/*</span></div><div class="line">* 依赖提供者，</div><div class="line">* 管理依赖，</div><div class="line">* 如果以后构造函数或依赖变化，就只需改动这里就行</div><div class="line">* 类似工厂方法，创建依赖类实例</div><div class="line">* 可以使用其他第三方库作为依赖提供</div><div class="line">* */</div><div class="line"><span class="meta">@Module</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarMoudle</span> </span>&#123;</div><div class="line">    <span class="meta">@Provides</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Engine <span class="title">provideEngine</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Engine();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Provides</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Seat <span class="title">provideSeat</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Seat();</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Provides</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Wheel <span class="title">provideWheel</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Wheel();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">// 使用 （@Inject）</span></div><div class="line"><span class="comment">/*</span></div><div class="line">        * 利用Dagger2生成的类来传入依赖对象</div><div class="line">        **/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Inject</span></div><div class="line">    Engine engine;</div><div class="line">    <span class="meta">@Inject</span></div><div class="line">    Wheel wheel;</div><div class="line">    <span class="meta">@Inject</span></div><div class="line">    Seat seat;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">()</span> </span>&#123;</div><div class="line">        DaggerCarComponent</div><div class="line">            .builder()</div><div class="line">            .carMoudle(<span class="keyword">new</span> CarMoudle())  <span class="comment">//初始化carmoudle</span></div><div class="line">            .build()</div><div class="line">            .inject(<span class="keyword">this</span>);</div><div class="line">        Log.d(Config.TAG, <span class="string">"new Car() Dagger"</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/02/学习dagger2-第一天/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.seventeams.cn/2017/08/01/QuickSort-in-algs4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1930,162 +2099,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.seventeams.cn/2016/11/24/杂记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="seven-zsyzzx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="seventeams">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/24/杂记/" itemprop="url">
-                  杂记2016-11-24
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-24T22:32:14+08:00">
-                2016-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/11/24/杂记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/11/24/杂记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/11/24/杂记/" class="leancloud_visitors" data-flag-title="杂记2016-11-24">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="记录近况"><a href="#记录近况" class="headerlink" title="记录近况"></a>记录近况</h1><ul>
-<li>断更了，原本准备一天一篇博客<ul>
-<li>这几天忙着考试</li>
-<li>没有写博客的习惯</li>
-<li>一个字懒</li>
-</ul>
-</li>
-<li>学习算法，正整理笔记：主要是为了应试</li>
-<li>有点一团糟，迷茫，正在调整，需要外力介入</li>
-<li>需要记录灵感，重新换新自己的敏感度</li>
-</ul>
-<blockquote>
-<p>流水账，要写几个技术贴，但是自己还没怎么学技术。&gt;</p>
-</blockquote>
-<h1 id="这几天在坚持FCC，卸载了QQ微信虽然失败了-但要坚持下去。。。"><a href="#这几天在坚持FCC，卸载了QQ微信虽然失败了-但要坚持下去。。。" class="headerlink" title="这几天在坚持FCC，卸载了QQ微信虽然失败了,但要坚持下去。。。"></a>这几天在坚持FCC，卸载了QQ微信<em>虽然失败了</em>,但要坚持下去。。。</h1>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2135,7 +2148,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2146,7 +2159,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2157,7 +2170,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
