@@ -8,8 +8,53 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>个人博客,记录自己</description>
-    <pubDate>Wed, 02 Aug 2017 13:42:14 GMT</pubDate>
+    <pubDate>Thu, 10 Aug 2017 12:00:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>学习Retrofit 使用和理解</title>
+      <link>http://blog.seventeams.cn/2017/08/08/retrofit-%E5%AD%A6%E4%B9%A0/</link>
+      <guid>http://blog.seventeams.cn/2017/08/08/retrofit-%E5%AD%A6%E4%B9%A0/</guid>
+      <pubDate>Tue, 08 Aug 2017 12:39:28 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;基本用法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;h2 id=&quot;添加依赖&quot;&gt;&lt;a href=&quot;#添加依赖&quot; class=&quot;headerlink&quot; title=&quot;添加依赖&quot;&gt;&lt;/a&gt;添加依赖&lt;/h2&gt;&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;compile &lt;span class=&quot;string&quot;&gt;&#39;com.squareup.retrofit2:retrofit:2.3.0&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;compile &lt;span class=&quot;string&quot;&gt;&#39;com.squareup.retrofit2:converter-gson:2.3.0&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在build.gradle添加retrofit2的最新版本就行了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;h2 id=&quot;构建retrofit&quot;&gt;&lt;a href=&quot;#构建retrofit&quot; class=&quot;headerlink&quot; title=&quot;构建retrofit&quot;&gt;&lt;/a&gt;构建retrofit&lt;/h2&gt;&lt;p&gt;构建retrofit实例,使用retrofit来处理HTTP请求&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Retrofit retrofit = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Retrofit.Builder()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            .baseUrl(&lt;span class=&quot;string&quot;&gt;&quot;https://api.github.com/&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            .addConverterFactory(GsonConverterFactory.create())&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  			.build();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;h2 id=&quot;构建请求接口&quot;&gt;&lt;a href=&quot;#构建请求接口&quot; class=&quot;headerlink&quot; title=&quot;构建请求接口&quot;&gt;&lt;/a&gt;构建请求接口&lt;/h2&gt;&lt;p&gt;定义Http请求接口:请求链接，参数，返回接口等(要提前定义好数据类bean，即json格式解析的数)&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;GithubService&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@GET&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;users/&amp;#123;user&amp;#125;/repos&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Call&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; listRepos(&lt;span class=&quot;meta&quot;&gt;@Path&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;user&quot;&lt;/span&gt;) String user);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;使用retrofit创建http请求服务&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;GithubService githubService = retrofit.create(GithubService.class);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;h2 id=&quot;执行请求-使用默认CallAdapter&quot;&gt;&lt;a href=&quot;#执行请求-使用默认CallAdapter&quot; class=&quot;headerlink&quot; title=&quot;执行请求(使用默认CallAdapter,)&quot;&gt;&lt;/a&gt;执行请求(使用默认CallAdapter,)&lt;/h2&gt;&lt;p&gt;执行http请求&lt;/p&gt;
+&lt;h4 id=&quot;异步&quot;&gt;&lt;a href=&quot;#异步&quot; class=&quot;headerlink&quot; title=&quot;异步&quot;&gt;&lt;/a&gt;异步&lt;/h4&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Call&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; call = githubService.listRepos(&lt;span class=&quot;string&quot;&gt;&quot;zsyzzx&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;call.enqueue(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Callback&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt;() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  	&lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onResponse&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Call&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; call, Response&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; response)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;//请求成功，respond.body()是数据，在此加上自己需要的操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      	List&amp;lt;GithubRepo&amp;gt; repos = response.body();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		Log.e(&lt;span class=&quot;string&quot;&gt;&quot;success&quot;&lt;/span&gt;,repos.toString());&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		listview.setAdapter(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; GithubRepoAdapter(MainActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;,repos));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onFailure&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Call&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; call, Throwable t)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      	&lt;span class=&quot;comment&quot;&gt;//网络请求失败，失败处理&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		Toast.makeText(MainActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;Error: &quot;&lt;/span&gt;+t.toString()  , Toast.LENGTH_SHORT).show();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;同步&quot;&gt;&lt;a href=&quot;#同步&quot; class=&quot;headerlink&quot; title=&quot;同步&quot;&gt;&lt;/a&gt;同步&lt;/h4&gt;&lt;p&gt;在Android主线程运行时，要新开一个线程，否则会报错&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Call&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; call = githubService.listRepos(&lt;span class=&quot;string&quot;&gt;&quot;zsyzzx&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Response&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; lists = call.execute();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;h2 id=&quot;处理返回体&quot;&gt;&lt;a href=&quot;#处理返回体&quot; class=&quot;headerlink&quot; title=&quot;处理返回体&quot;&gt;&lt;/a&gt;处理返回体&lt;/h2&gt;&lt;p&gt;不论是同步请求，还是异步请求，其原生的返回数据体是&lt;code&gt;Response&amp;lt;T&amp;gt;&lt;/code&gt; 如果要操作网络请求返回结果的话, 就是操作&lt;code&gt;Response&amp;lt;T&amp;gt;&lt;/code&gt;,可以使用debug功能看Response里的参数,每个参数的意义，可以使用chrome的控制台来了解&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/08/08/retrofit-学习/../retrofit-学习/1_retrofit.png&quot; alt=&quot;1_retrofit&quot;&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
+      
+      </description>
+      
+      <comments>http://blog.seventeams.cn/2017/08/08/retrofit-%E5%AD%A6%E4%B9%A0/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Learn RxJava Day 1</title>
+      <link>http://blog.seventeams.cn/2017/08/04/learn-RxJava-Day-1/</link>
+      <guid>http://blog.seventeams.cn/2017/08/04/learn-RxJava-Day-1/</guid>
+      <pubDate>Fri, 04 Aug 2017 14:34:20 GMT</pubDate>
+      <description>
+      
+      </description>
+      
+      <comments>http://blog.seventeams.cn/2017/08/04/learn-RxJava-Day-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>学习Dagger2 第一天</title>
