@@ -1,20 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -68,7 +76,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="blog, seventeams,seven,seventeen" />
@@ -76,13 +84,15 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/rss2.xml" title="seventeams" type="application/atom+xml" />
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -148,10 +158,12 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -174,17 +186,7 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
 
 
 
-  <title>
-  
-
-  
-    About | seventeams
-  
-</title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>About | seventeams</title>
   
 
 
@@ -203,18 +205,16 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,7 +230,7 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
       </a>
     </div>
       
-        <p class="site-subtitle">seven，seventeen，seventeam</p>
+        <h1 class="site-subtitle" itemprop="description">seven，seventeen，seventeam</h1>
       
   </div>
 
@@ -260,18 +260,8 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -280,22 +270,32 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
@@ -357,17 +357,25 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">About</h1>
+	<h2 class="post-title" itemprop="name headline">About</h2>
 
 
 
 </header>
 
-    
-    
-      <h1 id="本人"><a href="#本人" class="headerlink" title="本人"></a>本人</h1><blockquote>
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="本人"><a href="#本人" class="headerlink" title="本人"></a>本人</h1><blockquote>
 <ul>
 <li>即将毕业，不知道做些什么</li>
 <li>建一个博客来催促自己!</li>
@@ -386,6 +394,14 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
 <li>seventeams<br>注册域名没有了seven,seventeen,想了个同音：seventeam，但被注册了，所以有了seventeams.</li>
 </ul>
 
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
     
   </div>
 
@@ -409,27 +425,36 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="seven-zsyzzx" />
-          <p class="site-author-name" itemprop="name">seven-zsyzzx</p>
-           
-              <p class="site-description motion-element" itemprop="description">个人博客,记录自己</p>
           
+            <p class="site-author-name" itemprop="name">seven-zsyzzx</p>
+            <p class="site-description motion-element" itemprop="description"></p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
+            
+              <a href="/archives/">
+            
                 <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -473,12 +498,9 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/zsyzzx" target="_blank" title="GIthub">
+                <a href="https://github.com/zsyzzx" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  GIthub
-                </a>
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
               </span>
             
           
@@ -510,6 +532,22 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本人"><span class="nav-number">1.</span> <span class="nav-text">本人</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这个博客"><span class="nav-number">2.</span> <span class="nav-text">这个博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我想说的是"><span class="nav-number">3.</span> <span class="nav-text">我想说的是:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客域名的来源"><span class="nav-number">4.</span> <span class="nav-text">博客域名的来源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -525,41 +563,30 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2016 - 
+  &copy;  2016 &mdash; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">seven-zsyzzx</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  
-    <span class="site-uv">
-      本站访客数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人次
-    </span>
-  
 
-  
-</div>
+
+
+
 
 
         
@@ -598,6 +625,12 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
 
 
 
+
+
+
+
+
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -620,20 +653,17 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
 
   
@@ -641,7 +671,7 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -673,14 +703,6 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
 
 
 
-  
-
-
-
-
-
-  
-
 
 
 
@@ -701,14 +723,14 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script>AV.initialize("XSuHXMUAW7oym6yPOYfHuMtD-gzGzoHsz", "nfGfdjsnnKMAjF6ub666NVDA");</script>
   <script>
     function showTime(Counter) {
@@ -813,6 +835,10 @@ seven小学三年级第一次学英语，第一次学英语数字，第一次看
   </script>
 
 
+
+  
+
+  
 
   
 
