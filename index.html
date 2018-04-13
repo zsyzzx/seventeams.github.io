@@ -561,7 +561,7 @@
           <h1 id="合并排序-MergeSort"><a href="#合并排序-MergeSort" class="headerlink" title="合并排序 MergeSort"></a>合并排序 MergeSort</h1><h2 id="算法步骤-分治法"><a href="#算法步骤-分治法" class="headerlink" title="算法步骤(分治法)"></a>算法步骤(分治法)</h2><ul>
 <li>将数组分成两半</li>
 <li>递归排序每一部分</li>
-<li>合并两部分<br><img src="/2017/08/13/MergeSort-in-algs4/../MergeSort-in-algs4/59918d4fab644147bd001fcd.png" alt="basic plan of merge sort "></li>
+<li>合并两部分<br><img src="/2017/08/13/MergeSort-in-algs4/59918d4fab644147bd001fcd.png" alt="basic plan of merge sort "></li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1019,7 +1019,7 @@
 
       
         
-          <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><h2 id="介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序"><a href="#介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序" class="headerlink" title="介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序"></a>介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序</h2><p><img src="/2017/08/01/QuickSort-in-algs4/../QuickSort-in-algs4/59531b5bab64412994000806.png" alt="quicksort"></p>
+          <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><h2 id="介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序"><a href="#介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序" class="headerlink" title="介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序"></a>介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序</h2><p><img src="/2017/08/01/QuickSort-in-algs4/59531b5bab64412994000806.png" alt="quicksort"></p>
 <h2 id="普通写法-递归调用"><a href="#普通写法-递归调用" class="headerlink" title="普通写法(递归调用)"></a>普通写法(递归调用)</h2><p>快排分为两部分:</p>
 <ul>
 <li>分片(划分)<br>找到一个值，根据这个值将数组分为两个子数组<br>最初默认使用数组最左边元素为分界值</li>
@@ -1177,7 +1177,7 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//比较函数参考</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">less</span><span class="params">(Comparable v, Comparable w)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> v.compareTo(w) &lt; <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"><span class="comment">//交换函数</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exchange</span><span class="params">(Object[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</div><div class="line">        Object swap = a[i];</div><div class="line">        a[i] = a[j];</div><div class="line">        a[j] = swap;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>上面的写法是最开始能够想到的,但如果把排序过程打印出来的话，也可以用这个算法派有序的输入，就会发现重复排序的情况，就是说这个程序会一直执行下去，不管输入是否已经有序<br><img src="/2017/06/07/notes-of-elementary-sorts-in-algs4/../notes-of-elementary-sorts-in-algs4/592e7984ab6441510f0011b6.png" alt="bubble sort"></p>
+<p>上面的写法是最开始能够想到的,但如果把排序过程打印出来的话，也可以用这个算法派有序的输入，就会发现重复排序的情况，就是说这个程序会一直执行下去，不管输入是否已经有序<br><img src="/2017/06/07/notes-of-elementary-sorts-in-algs4/592e7984ab6441510f0011b6.png" alt="bubble sort"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/07/notes-of-elementary-sorts-in-algs4/#more" rel="contents">

@@ -38,7 +38,7 @@
         &lt;h1 id=&quot;合并排序-MergeSort&quot;&gt;&lt;a href=&quot;#合并排序-MergeSort&quot; class=&quot;headerlink&quot; title=&quot;合并排序 MergeSort&quot;&gt;&lt;/a&gt;合并排序 MergeSort&lt;/h1&gt;&lt;h2 id=&quot;算法步骤-分治法&quot;&gt;&lt;a href=&quot;#算法步骤-分治法&quot; class=&quot;headerlink&quot; title=&quot;算法步骤(分治法)&quot;&gt;&lt;/a&gt;算法步骤(分治法)&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;将数组分成两半&lt;/li&gt;
 &lt;li&gt;递归排序每一部分&lt;/li&gt;
-&lt;li&gt;合并两部分&lt;br&gt;&lt;img src=&quot;/2017/08/13/MergeSort-in-algs4/../MergeSort-in-algs4/59918d4fab644147bd001fcd.png&quot; alt=&quot;basic plan of merge sort &quot;&gt;&lt;/li&gt;
+&lt;li&gt;合并两部分&lt;br&gt;&lt;img src=&quot;/2017/08/13/MergeSort-in-algs4/59918d4fab644147bd001fcd.png&quot; alt=&quot;basic plan of merge sort &quot;&gt;&lt;/li&gt;
 &lt;/ul&gt;
       
       </description>
@@ -100,7 +100,7 @@
       <pubDate>Tue, 01 Aug 2017 13:18:09 GMT</pubDate>
       <description>
       
-        &lt;h1 id=&quot;快速排序&quot;&gt;&lt;a href=&quot;#快速排序&quot; class=&quot;headerlink&quot; title=&quot;快速排序&quot;&gt;&lt;/a&gt;快速排序&lt;/h1&gt;&lt;h2 id=&quot;介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序&quot;&gt;&lt;a href=&quot;#介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序&quot; class=&quot;headerlink&quot; title=&quot;介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序&quot;&gt;&lt;/a&gt;介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2017/08/01/QuickSort-in-algs4/../QuickSort-in-algs4/59531b5bab64412994000806.png&quot; alt=&quot;quicksort&quot;&gt;&lt;/p&gt;
+        &lt;h1 id=&quot;快速排序&quot;&gt;&lt;a href=&quot;#快速排序&quot; class=&quot;headerlink&quot; title=&quot;快速排序&quot;&gt;&lt;/a&gt;快速排序&lt;/h1&gt;&lt;h2 id=&quot;介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序&quot;&gt;&lt;a href=&quot;#介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序&quot; class=&quot;headerlink&quot; title=&quot;介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序&quot;&gt;&lt;/a&gt;介绍：分治排序算法，以一个特定元素为分界，划分成两个子数组，两个子数组有序时整个数组就有序&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2017/08/01/QuickSort-in-algs4/59531b5bab64412994000806.png&quot; alt=&quot;quicksort&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;普通写法-递归调用&quot;&gt;&lt;a href=&quot;#普通写法-递归调用&quot; class=&quot;headerlink&quot; title=&quot;普通写法(递归调用)&quot;&gt;&lt;/a&gt;普通写法(递归调用)&lt;/h2&gt;&lt;p&gt;快排分为两部分:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;分片(划分)&lt;br&gt;找到一个值，根据这个值将数组分为两个子数组&lt;br&gt;最初默认使用数组最左边元素为分界值&lt;/li&gt;
@@ -126,7 +126,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//比较函数参考&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;less&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Comparable v, Comparable w)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; v.compareTo(w) &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//交换函数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;exchange&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Object[] a, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        Object swap = a[i];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        a[i] = a[j];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        a[j] = swap;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;上面的写法是最开始能够想到的,但如果把排序过程打印出来的话，也可以用这个算法派有序的输入，就会发现重复排序的情况，就是说这个程序会一直执行下去，不管输入是否已经有序&lt;br&gt;&lt;img src=&quot;/2017/06/07/notes-of-elementary-sorts-in-algs4/../notes-of-elementary-sorts-in-algs4/592e7984ab6441510f0011b6.png&quot; alt=&quot;bubble sort&quot;&gt;&lt;/p&gt;
+&lt;p&gt;上面的写法是最开始能够想到的,但如果把排序过程打印出来的话，也可以用这个算法派有序的输入，就会发现重复排序的情况，就是说这个程序会一直执行下去，不管输入是否已经有序&lt;br&gt;&lt;img src=&quot;/2017/06/07/notes-of-elementary-sorts-in-algs4/592e7984ab6441510f0011b6.png&quot; alt=&quot;bubble sort&quot;&gt;&lt;/p&gt;
       
       </description>
       
