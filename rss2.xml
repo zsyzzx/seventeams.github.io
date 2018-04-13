@@ -72,7 +72,7 @@
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Call&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; call = githubService.listRepos(&lt;span class=&quot;string&quot;&gt;&quot;zsyzzx&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Response&amp;lt;List&amp;lt;GithubRepo&amp;gt;&amp;gt; lists = call.execute();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;h2 id=&quot;处理返回体&quot;&gt;&lt;a href=&quot;#处理返回体&quot; class=&quot;headerlink&quot; title=&quot;处理返回体&quot;&gt;&lt;/a&gt;处理返回体&lt;/h2&gt;&lt;p&gt;不论是同步请求，还是异步请求，其原生的返回数据体是&lt;code&gt;Response&amp;lt;T&amp;gt;&lt;/code&gt; 如果要操作网络请求返回结果的话, 就是操作&lt;code&gt;Response&amp;lt;T&amp;gt;&lt;/code&gt;,可以使用debug功能看Response里的参数,每个参数的意义，可以使用chrome的控制台来了解&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2017/08/08/retrofit-学习/../retrofit-学习/1_retrofit.png&quot; alt=&quot;1_retrofit&quot;&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/08/08/retrofit-学习/1_retrofit.png&quot; alt=&quot;1_retrofit&quot;&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
       
       </description>
       
